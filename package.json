@@ -19,5 +19,9 @@
   "bugs": {
     "url": "https://github.com/chenshenhai/canvas-note/issues"
   },
-  "homepage": "https://github.com/chenshenhai/canvas-note#readme"
+  "homepage": "https://github.com/chenshenhai/canvas-note#readme",
+  "dependencies": {
+    "koa": "^2.7.0",
+    "koa-static": "^5.0.0"
+  }
 }
