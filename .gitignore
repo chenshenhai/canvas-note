@@ -59,3 +59,10 @@ typings/
 
 # next.js build output
 .next
+
+
+npm-debug.log
+_book/
+demo/*/node_modules
+demo/*/npm-debug.log
+demo/*/package-lock.json
