@@ -3,12 +3,11 @@
   const canvas = doc.getElementById('canvas-1');
   canvas.width = 400;
   canvas.height = 400;
-  canvas.style = 'border: 1px solid #ccc;';
 
   const context = canvas.getContext('2d');
   context.moveTo(100, 100);
   context.lineTo(300, 100);
-  context.lineWidth = 12;
+  context.lineWidth = 10;
   context.strokeStyle = '#000';
   context.stroke();
 })(document);
@@ -19,14 +18,13 @@
   const canvas = doc.getElementById('canvas-2');
   canvas.width = 400;
   canvas.height = 400;
-  canvas.style = 'border: 1px solid #ccc;';
 
   const context = canvas.getContext('2d');
   context.beginPath();
   context.moveTo(100, 100);
   context.lineTo(300, 100);
   context.lineTo(100, 200);
-  context.lineWidth = 12;
+  context.lineWidth = 10;
   context.strokeStyle = '#000';
   context.stroke();
 })(document);
@@ -37,20 +35,19 @@
   const canvas = doc.getElementById('canvas-3');
   canvas.width = 400;
   canvas.height = 400;
-  canvas.style = 'border: 1px solid #ccc;';
 
   const context = canvas.getContext('2d');
   context.beginPath();
   context.moveTo(100, 100);
   context.lineTo(300, 100);
-  context.lineWidth = 12;
+  context.lineWidth = 10;
   context.strokeStyle = '#000';
   context.stroke();
 
   context.beginPath();
   context.moveTo(300, 100);
   context.lineTo(100, 200);
-  context.lineWidth = 12;
+  context.lineWidth = 10;
   context.strokeStyle = '#ccc';
   context.stroke();
 })(document);
@@ -61,14 +58,13 @@
   const canvas = doc.getElementById('canvas-4');
   canvas.width = 400;
   canvas.height = 400;
-  canvas.style = 'border: 1px solid #ccc;';
 
   const context = canvas.getContext('2d');
   context.beginPath();
   context.moveTo(100, 100);
   context.lineTo(300, 100);
   context.lineTo(100, 200);
-  context.lineWidth = 12;
+  context.lineWidth = 10;
   context.strokeStyle = '#000';
   // 折线自闭合
   context.closePath();
@@ -81,7 +77,6 @@
   const canvas = doc.getElementById('canvas-5');
   canvas.width = 400;
   canvas.height = 400;
-  canvas.style = 'border: 1px solid #ccc;';
 
   const context = canvas.getContext('2d');
   context.beginPath();
@@ -116,7 +111,6 @@
   const canvas = doc.getElementById('canvas-6');
   canvas.width = 400;
   canvas.height = 400;
-  canvas.style = 'border: 1px solid #ccc;';
 
   const context = canvas.getContext('2d');
   context.beginPath();
