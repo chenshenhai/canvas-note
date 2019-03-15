@@ -27,3 +27,43 @@
 
 })(document);
 
+
+
+(function(doc) {
+  // 绘制弧形 canvas-3
+  const canvas = doc.getElementById('canvas-3');
+  canvas.width = 400;
+  canvas.height = 400;
+
+  const context = canvas.getContext('2d');
+
+  context.beginPath();
+  context.moveTo(100, 100);
+  context.arcTo(300, 100, 300, 300, 200);
+  context.lineWidth = 10;
+  context.strokeStyle = "#000";
+  context.stroke();
+
+  // context.beginPath();
+  // context.moveTo(50, 100);
+  // context.lineTo(250, 100);
+  // context.lineWidth = 10;
+  // context.strokeStyle = '#000';
+  // context.stroke();
+  // // arcTo(x1,y1,x2,y2,radius);
+
+  // context.beginPath();
+  // context.moveTo(250, 100);
+  // context.arcTo(250, 100, 250, 250, Math.PI * 0.5);
+  // // context.lineTo(250, 250);
+  // context.lineWidth = 10;
+  // context.strokeStyle = '#000';
+  // context.stroke();
+  // // context.moveTo(300, 100);
+  // // context.lineTo(100, 300);
+
+  
+  context.stroke();
+
+})(document);
+
