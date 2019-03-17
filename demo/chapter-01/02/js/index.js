@@ -5,10 +5,23 @@
   canvas.height = 400;
   const context = canvas.getContext('2d');
   
-  context.rect(40, 40, 200, 300);
+  // 绘制矩形边框
+  context.rect(50, 50, 100, 80);
   context.lineWidth = 10;
   context.strokeStyle = '#000';
-  context.stroke();
+  // context.stroke();
+
+  // 绘制填充颜色的矩形
+  context.fillStyle = "#125394";
+  context.fillRect(50, 150, 100, 80);
+  
+
+  // 绘制填充颜色的矩形
+  // 再清除矩形内部的区域
+  context.fillStyle = "#009688";
+  context.fillRect(50, 250, 200, 120);
+  context.clearRect(100, 300, 80, 40);
+
 })(document);
 
 
