@@ -1,6 +1,6 @@
 (function(doc) {
-  // 绘制矩形 canvas-1
-  const canvas = doc.getElementById('canvas-1');
+  // 绘制矩形 canvas-rect
+  const canvas = doc.getElementById('canvas-rect');
   canvas.width = 400;
   canvas.height = 400;
   const context = canvas.getContext('2d');
@@ -9,7 +9,7 @@
   context.rect(50, 50, 100, 80);
   context.lineWidth = 10;
   context.strokeStyle = '#000';
-  // context.stroke();
+  context.stroke();
 
   // 绘制填充颜色的矩形
   context.fillStyle = "#125394";
@@ -26,8 +26,8 @@
 
 
 (function(doc) {
-  // 绘制圆形 canvas-2
-  const canvas = doc.getElementById('canvas-2');
+  // 绘制圆形 canvas-arc
+  const canvas = doc.getElementById('canvas-arc');
   canvas.width = 400;
   canvas.height = 400;
 
@@ -43,8 +43,8 @@
 
 
 (function(doc) {
-  // 绘制圆弧形 canvas-3
-  const canvas = doc.getElementById('canvas-3');
+  // 绘制圆弧形 canvas-arcTo
+  const canvas = doc.getElementById('canvas-arcTo');
   canvas.width = 400;
   canvas.height = 400;
 
@@ -60,8 +60,8 @@
 
 
 (function(doc) {
-  // 绘制二次曲线 canvas-4
-  const canvas = doc.getElementById('canvas-4');
+  // 绘制二次曲线 canvas-quadraticCurveTo
+  const canvas = doc.getElementById('canvas-quadraticCurveTo');
   canvas.width = 400;
   canvas.height = 400;
 
@@ -76,8 +76,8 @@
 
 
 (function(doc) {
-  // 绘制三次曲线 canvas-5
-  const canvas = doc.getElementById('canvas-5');
+  // 绘制三次曲线 canvas-bezierCurveTo
+  const canvas = doc.getElementById('canvas-bezierCurveTo');
   canvas.width = 400;
   canvas.height = 400;
 
