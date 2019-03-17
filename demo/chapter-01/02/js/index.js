@@ -30,7 +30,7 @@
 
 
 (function(doc) {
-  // 绘制弧形 canvas-3
+  // 绘制圆弧形 canvas-3
   const canvas = doc.getElementById('canvas-3');
   canvas.width = 400;
   canvas.height = 400;
@@ -44,4 +44,37 @@
   context.stroke();
 
 })(document);
+
+
+(function(doc) {
+  // 绘制二次曲线 canvas-4
+  const canvas = doc.getElementById('canvas-4');
+  canvas.width = 400;
+  canvas.height = 400;
+
+  const context = canvas.getContext('2d');
+  context.beginPath();
+  context.moveTo(50, 350);
+  context.quadraticCurveTo(200, 0, 350, 350);
+  context.lineWidth = 10;
+  context.strokeStyle = "#000";
+  context.stroke();
+})(document);
+
+
+(function(doc) {
+  // 绘制三次曲线 canvas-5
+  const canvas = doc.getElementById('canvas-5');
+  canvas.width = 400;
+  canvas.height = 400;
+
+  const context = canvas.getContext('2d');
+  context.beginPath();
+  context.moveTo(50, 200);
+  context.bezierCurveTo(150, 0, 200, 350, 350, 200);
+  context.lineWidth = 10;
+  context.strokeStyle = "#000";
+  context.stroke();
+})(document);
+
 
