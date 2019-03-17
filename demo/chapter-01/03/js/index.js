@@ -1,13 +1,9 @@
 (function(doc) {
 
-  function drawCircle(context, x, y, r) {
-    // context.save();
-    context.beginPath();
-    context.lineWidth = 12;
-    context.strokeStyle = '#000';
-    context.arc(x, y, r, Math.PI * 0, Math.PI * 2, true);
-    context.closePath();
-    // context.restore();
+  function createCircle(x, y, r) {
+    const circle = new Path2D();
+    circle.arc(x, y, r, 0, Math.PI * 2);
+    return circle;
   }
 
   // 重复绘制方法1 canvas-1
@@ -16,7 +12,14 @@
   canvas.height = 400;
   const context = canvas.getContext('2d');
   
-  drawCircle(context, 100, 100, 50);
-  drawCircle(context, 200, 100, 50);
-  context.stroke();
+  const c1 = createCircle(100, 100, 50);
+  const c2 = createCircle(200, 100, 30);
+  const c3 = createCircle(140, 240, 60);
+  const c4= createCircle(300, 280, 80);
+  context.strokeStyle = '#125394';
+  context.lineWidth = 10;
+  context.stroke(c1);
+  context.stroke(c2);
+  context.stroke(c3);
+  context.stroke(c4);
 })(document);
