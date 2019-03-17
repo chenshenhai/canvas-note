@@ -1,4 +1,7 @@
 # Canvas开发笔记
+* 致读者
+  * 本书初衷
+  * [参考资料](./note/chapter-00/02.md)
 * 1. 绘制二维场景
   * [1.1 绘制路径](./note/chapter-01/01.md)
   * [1.2 绘制图形](./note/chapter-01/02.md)
