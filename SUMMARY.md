@@ -7,7 +7,7 @@
   * [1.2 绘制图形](./note/chapter-01/02.md)
   * [1.3 Path2D绘制](./note/chapter-01/03.md)
   * [1.4 绘制文字](./note/chapter-01/04.md)
-  * 填充颜色
+  * [1.5 填充颜色](./note/chapter-01/05.md)
   * 填充图片
   * 填充颜色
   * 变换
