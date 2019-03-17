@@ -90,4 +90,18 @@
   context.stroke();
 })(document);
 
+(function(doc) {
+  // 绘制三次曲线 canvas-ellipse
+  const canvas = doc.getElementById('canvas-bezierCurveTo');
+  canvas.width = 400;
+  canvas.height = 400;
+
+  const context = canvas.getContext('2d');
+  context.beginPath();
+  context.lineWidth = 10;
+  context.strokeStyle = "#125394";
+  context.ellipse(200, 200, 80, 160, 90 * Math.PI/180, 0, 2 * Math.PI); //倾斜45°角
+  context.stroke();
+})(document);
+
 
