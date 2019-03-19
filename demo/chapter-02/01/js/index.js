@@ -10,17 +10,15 @@
   let moveTimestamp = 0;
   let moveDirection = 1;
 
-  function clear() {
-    context.clearRect(0, 0, canvas.width, canvas.height);
-  }
-
   function draw(timestamp) {
     if (!(moveTimestamp > 0)) {
       moveTimestamp = timestamp;
     }
     moveDistance = moveDistance + moveDirection * (timestamp - moveTimestamp) / 10;
     context.fillStyle = 'red';
-    clear();
+    // TODO
+    console.log('moveDistance =', moveDistance,' timestamp =', timestamp, ' moveTimestamp = ', moveTimestamp);
+    context.clearRect(0, 0, canvas.width, canvas.height);
     context.fillRect(moveDistance, 200, 50, 50);
     if (moveDistance > 400 || moveDistance < 100) {
       moveDirection = 0 - moveDirection;
