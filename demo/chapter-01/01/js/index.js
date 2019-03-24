@@ -1,6 +1,6 @@
-(function(doc) {
+(function() {
   // 绘制线段 canvas-1
-  const canvas = doc.getElementById('canvas-1');
+  const canvas = document.getElementById('canvas-1');
   canvas.width = 400;
   canvas.height = 400;
 
@@ -10,12 +10,12 @@
   context.lineWidth = 10;
   context.strokeStyle = '#000';
   context.stroke();
-})(document);
+})();
 
 
-(function(doc) {
+(function() {
   // 绘制折线 canvas-2
-  const canvas = doc.getElementById('canvas-2');
+  const canvas = document.getElementById('canvas-2');
   canvas.width = 400;
   canvas.height = 400;
 
@@ -27,12 +27,12 @@
   context.lineWidth = 10;
   context.strokeStyle = '#000';
   context.stroke();
-})(document);
+})();
 
 
-(function(doc) {
+(function() {
   // 绘制两个独立线段 canvas-3
-  const canvas = doc.getElementById('canvas-3');
+  const canvas = document.getElementById('canvas-3');
   canvas.width = 400;
   canvas.height = 400;
 
@@ -50,12 +50,12 @@
   context.lineWidth = 10;
   context.strokeStyle = '#ccc';
   context.stroke();
-})(document);
+})();
 
 
-(function(doc) {
+(function() {
   // 绘制折线 canvas-4
-  const canvas = doc.getElementById('canvas-4');
+  const canvas = document.getElementById('canvas-4');
   canvas.width = 400;
   canvas.height = 400;
 
@@ -69,12 +69,12 @@
   // 折线自闭合
   context.closePath();
   context.stroke();
-})(document);
+})();
 
 
-(function(doc) {
+(function() {
   // 绘制线段样式 canvas-05
-  const canvas = doc.getElementById('canvas-5');
+  const canvas = document.getElementById('canvas-5');
   canvas.width = 400;
   canvas.height = 400;
 
@@ -103,12 +103,12 @@
   context.strokeStyle = '#000';
   context.stroke();
 
-})(document);
+})();
 
 
-(function(doc) {
+(function() {
   // 绘制折线 canvas-6
-  const canvas = doc.getElementById('canvas-6');
+  const canvas = document.getElementById('canvas-6');
   canvas.width = 400;
   canvas.height = 400;
 
@@ -140,4 +140,4 @@
   context.strokeStyle = '#000';
   context.stroke();
 
-})(document);
+})();

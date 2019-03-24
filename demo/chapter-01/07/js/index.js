@@ -1,6 +1,6 @@
-(function(doc) {
+(function() {
   // 位移 canvas-1
-  const canvas = doc.getElementById('canvas-1');
+  const canvas = document.getElementById('canvas-1');
   canvas.width = 400;
   canvas.height = 400;
   const context = canvas.getContext('2d');
@@ -10,12 +10,12 @@
   context.translate(200, 200);
   // 此时原点坐标为(200, 200)，画图坐标为(0, 0)是以(200, 200)为相对原点
   context.fillRect(0, 0, 100, 100);
-})(document);
+})();
 
 
-(function(doc) {
+(function() {
   // 旋转 canvas-2
-  const canvas = doc.getElementById('canvas-2');
+  const canvas = document.getElementById('canvas-2');
   canvas.width = 400;
   canvas.height = 400;
   const context = canvas.getContext('2d');
@@ -31,4 +31,4 @@
   // 画出一个旋转了的正方形
   context.fillStyle = '#ccc';
   context.fillRect(0, 0, 100, 100);
-})(document);
+})();

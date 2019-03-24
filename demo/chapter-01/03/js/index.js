@@ -1,4 +1,4 @@
-(function(doc) {
+(function() {
 
   function createCircle(x, y, r) {
     const circle = new Path2D();
@@ -7,7 +7,7 @@
   }
 
   // 重复绘制方法1 canvas-1
-  const canvas = doc.getElementById('canvas-1');
+  const canvas = document.getElementById('canvas-1');
   canvas.width = 400;
   canvas.height = 400;
   const context = canvas.getContext('2d');
@@ -22,4 +22,4 @@
   context.stroke(c2);
   context.stroke(c3);
   context.stroke(c4);
-})(document);
+})();

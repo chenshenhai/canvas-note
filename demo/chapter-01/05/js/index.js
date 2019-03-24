@@ -1,17 +1,17 @@
-(function(doc) {
+(function() {
   // 绘制填充颜色 canvas-1
-  const canvas = doc.getElementById('canvas-1');
+  const canvas = document.getElementById('canvas-1');
   canvas.width = 400;
   canvas.height = 400;
   const context = canvas.getContext('2d');
 
   context.fillStyle = '#125394';
   context.fillRect(100, 100, 200, 200);
-})(document);
+})();
 
-(function(doc) {
+(function() {
   // 绘制填充颜色 canvas-2
-  const canvas = doc.getElementById('canvas-2');
+  const canvas = document.getElementById('canvas-2');
   canvas.width = 400;
   canvas.height = 400;
   const context = canvas.getContext('2d');
@@ -19,12 +19,12 @@
   context.fillStyle = '#125394';
   context.globalAlpha = 0.5;
   context.fillRect(100, 100, 200, 200);
-})(document);
+})();
 
 
-(function(doc) {
+(function() {
   // 线性渐变 canvas-3
-  const canvas = doc.getElementById('canvas-3');
+  const canvas = document.getElementById('canvas-3');
   canvas.width = 400;
   canvas.height = 400;
   const context = canvas.getContext('2d');
@@ -41,13 +41,13 @@
   context.fillStyle = linearGradient2;
   context.fillRect(200, 200, 150, 150);
 
-})(document);
+})();
 
 
 
-(function(doc) {
+(function() {
   // 径向渐变 canvas-4
-  const canvas = doc.getElementById('canvas-4');
+  const canvas = document.getElementById('canvas-4');
   canvas.width = 400;
   canvas.height = 400;
   const context = canvas.getContext('2d');
@@ -60,4 +60,4 @@
   context.fillRect(50, 50, 300, 300);
 
 
-})(document);
+})();

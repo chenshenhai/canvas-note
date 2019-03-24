@@ -1,6 +1,6 @@
-(function(doc) {
+(function() {
   // 绘制矩形 canvas-rect
-  const canvas = doc.getElementById('canvas-rect');
+  const canvas = document.getElementById('canvas-rect');
   canvas.width = 400;
   canvas.height = 400;
   const context = canvas.getContext('2d');
@@ -22,12 +22,12 @@
   context.fillRect(50, 250, 200, 120);
   context.clearRect(100, 300, 80, 40);
 
-})(document);
+})();
 
 
-(function(doc) {
+(function() {
   // 绘制圆形 canvas-arc
-  const canvas = doc.getElementById('canvas-arc');
+  const canvas = document.getElementById('canvas-arc');
   canvas.width = 400;
   canvas.height = 400;
 
@@ -38,13 +38,13 @@
   context.strokeStyle = '#000';
   context.stroke();
 
-})(document);
+})();
 
 
 
-(function(doc) {
+(function() {
   // 绘制圆弧形 canvas-arcTo
-  const canvas = doc.getElementById('canvas-arcTo');
+  const canvas = document.getElementById('canvas-arcTo');
   canvas.width = 400;
   canvas.height = 400;
 
@@ -56,12 +56,12 @@
   context.strokeStyle = "#000";
   context.stroke();
 
-})(document);
+})();
 
 
-(function(doc) {
+(function() {
   // 绘制二次曲线 canvas-quadraticCurveTo
-  const canvas = doc.getElementById('canvas-quadraticCurveTo');
+  const canvas = document.getElementById('canvas-quadraticCurveTo');
   canvas.width = 400;
   canvas.height = 400;
 
@@ -72,12 +72,12 @@
   context.lineWidth = 10;
   context.strokeStyle = "#000";
   context.stroke();
-})(document);
+})();
 
 
-(function(doc) {
+(function() {
   // 绘制三次曲线 canvas-bezierCurveTo
-  const canvas = doc.getElementById('canvas-bezierCurveTo');
+  const canvas = document.getElementById('canvas-bezierCurveTo');
   canvas.width = 400;
   canvas.height = 400;
 
@@ -88,11 +88,11 @@
   context.lineWidth = 10;
   context.strokeStyle = "#000";
   context.stroke();
-})(document);
+})();
 
-(function(doc) {
+(function() {
   // 绘制三次曲线 canvas-ellipse
-  const canvas = doc.getElementById('canvas-bezierCurveTo');
+  const canvas = document.getElementById('canvas-bezierCurveTo');
   canvas.width = 400;
   canvas.height = 400;
 
@@ -102,6 +102,6 @@
   context.strokeStyle = "#125394";
   context.ellipse(200, 200, 80, 160, 90 * Math.PI/180, 0, 2 * Math.PI); //倾斜45°角
   context.stroke();
-})(document);
+})();
 
 

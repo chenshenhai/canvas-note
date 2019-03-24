@@ -1,7 +1,7 @@
-(function(doc) {
+(function() {
 
   // 绘制移动效果动画 canvas-1
-  const canvas = doc.getElementById('canvas-1');
+  const canvas = document.getElementById('canvas-1');
   const requestAnimationFrame = window.requestAnimationFrame;
   canvas.width = 500;
   canvas.height = 500;
@@ -30,4 +30,4 @@
   // 开始执行移动
   requestAnimationFrame(draw);
   
-})(document);
+})();
