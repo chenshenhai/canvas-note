@@ -46,8 +46,113 @@
   context.fillRect(100, 100, 100, 100);
   
   context.scale(0.5,0.5);
-  // 画出一个缩放0.5倍的正方形
+  // 画出一个缩放0.5倍的灰色正方形
   context.fillStyle = '#ccc';
   context.fillRect(100, 100, 100, 100);
   // 会发现(x, y)偏移原点的长度也缩放了0.5倍
+})();
+
+(function() {
+  // 变形 canvas-4
+  const canvas = document.getElementById('canvas-4');
+  canvas.width = 400;
+  canvas.height = 400;
+  const context = canvas.getContext('2d');
+  context.globalAlpha = 0.5;
+
+  // 默认一个黑色正方形
+  context.fillStyle = '#000';
+  context.fillRect(100, 100, 100, 100);
+  
+  context.transform(1, Math.sin(Math.PI/4), 0, 1, 0, 0)
+  // 画出一个变形的正方形
+  context.fillStyle = 'red';
+  context.fillRect(100, 100, 100, 100);
+
+  context.resetTransform();
+  context.transform(1, 0, Math.sin(Math.PI/4), 1, 0, 0)
+  // 画出一个变形的正方形
+  context.fillStyle = 'blue';
+  context.fillRect(100, 100, 100, 100);
+})();
+
+
+(function() {
+  // 变形 canvas-5
+  const canvas = document.getElementById('canvas-5');
+  canvas.width = 400;
+  canvas.height = 400;
+  const context = canvas.getContext('2d');
+  context.globalAlpha = 0.5;
+  
+  let transformX = Math.PI * 0;
+  let transformRate = 1/180;
+  let transformDirect = 1;
+
+  // 绘制函数
+  function draw(timestamp) {
+    // 约间隔16.67ms, 每次浏览器执行重绘
+    // 清除画布
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    context.resetTransform();
+    context.transform(1, Math.sin(transformX), 0, 1, 0, 0)
+    // 画出一个变形的正方形
+    context.fillStyle = 'red';
+    context.fillRect(100, 100, 100, 100);
+    // 控制水平倾斜范围，如果超出范围，就往反方向移动
+    if (transformX <= 0) {
+      transformX = 0;
+      transformDirect = 1
+    } else if (transformX >= Math.PI/2) {
+      transformX = Math.PI/2;
+      transformDirect = -1;
+    }
+    transformX = transformX + Math.PI * transformRate * transformDirect;
+    // 重复执行移动
+    requestAnimationFrame(draw);
+  }
+
+  // 开始执行移动
+  requestAnimationFrame(draw);
+})();
+
+
+
+(function() {
+  // 变形 canvas-6
+  const canvas = document.getElementById('canvas-6');
+  canvas.width = 400;
+  canvas.height = 400;
+  const context = canvas.getContext('2d');
+  context.globalAlpha = 0.5;
+  
+  let transformY = Math.PI / 2;
+  let transformRate = 1/180;
+  let transformDirect = 1;
+
+  // 绘制函数
+  function draw(timestamp) {
+    // 约间隔16.67ms, 每次浏览器执行重绘
+    // 清除画布
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    context.resetTransform();
+    context.transform(1, 0, Math.cos(transformY), 1, 0, 0)
+    // 画出一个变形的正方形
+    context.fillStyle = 'blue';
+    context.fillRect(100, 100, 100, 100);
+    // 控制水平倾斜范围，如果超出范围，就往反方向移动
+    if (transformY <= 0) {
+      transformY = 0;
+      transformDirect = 1
+    } else if (transformY >= Math.PI/2) {
+      transformY = Math.PI/2;
+      transformDirect = -1;
+    }
+    transformY = transformY + Math.PI * transformRate * transformDirect;
+    // 重复执行移动
+    requestAnimationFrame(draw);
+  }
+
+  // 开始执行移动
+  requestAnimationFrame(draw);
 })();

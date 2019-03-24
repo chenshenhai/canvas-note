@@ -20,12 +20,31 @@
 <body>
   <h2>位移</h2>
   <canvas id="canvas-1"></canvas>
+
   <h2>旋转</h2>
   <canvas id="canvas-2"></canvas>
+
   <h2>缩放</h2>
   <canvas id="canvas-3"></canvas>
+
   <h2>形变</h2>
   <canvas id="canvas-4"></canvas>
+
+  <h2>形变-水平倾斜变化</h2>
+  <div>
+    <p>从 context.transform(1, Math.sin(0), 0, 1, 0, 0 )</p>
+    <p>至 context.transform(1, Math.sin(Math.PI/2), 0, 1, 0, 0 )</p>
+    <p>循环变化</p>
+  </div>
+  <canvas id="canvas-5"></canvas>
+
+  <h2>形变-垂直倾斜变化</h2>
+  <div>
+    <p>从 context.transform(1, 0, Math.cos(Math.PI/2), 1, 0, 0 )</p>
+    <p>至 context.transform(1, Math.cos(0), 0, 1, 0, 0 )</p>
+    <p>循环变化</p>
+  </div>
+  <canvas id="canvas-6"></canvas>
   <script src="./js/index.js"></script>
 </body>
 </html>
