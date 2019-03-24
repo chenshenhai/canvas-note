@@ -32,3 +32,22 @@
   context.fillStyle = '#ccc';
   context.fillRect(0, 0, 100, 100);
 })();
+
+
+(function() {
+  // 旋转 canvas-3
+  const canvas = document.getElementById('canvas-3');
+  canvas.width = 400;
+  canvas.height = 400;
+  const context = canvas.getContext('2d');
+
+  // 默认一个黑色正方形
+  context.fillStyle = '#000';
+  context.fillRect(100, 100, 100, 100);
+  
+  context.scale(0.5,0.5);
+  // 画出一个缩放0.5倍的正方形
+  context.fillStyle = '#ccc';
+  context.fillRect(100, 100, 100, 100);
+  // 会发现(x, y)偏移原点的长度也缩放了0.5倍
+})();
