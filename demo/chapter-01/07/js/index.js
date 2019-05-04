@@ -35,7 +35,7 @@
 
 
 (function() {
-  // 旋转 canvas-3
+  // 缩放 canvas-3
   const canvas = document.getElementById('canvas-3');
   canvas.width = 400;
   canvas.height = 400;
@@ -51,6 +51,7 @@
   context.fillRect(100, 100, 100, 100);
   // 会发现(x, y)偏移原点的长度也缩放了0.5倍
 })();
+
 
 (function() {
   // 变形 canvas-4
