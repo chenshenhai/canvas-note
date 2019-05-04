@@ -1,5 +1,5 @@
 (function() {
-  // 绘制矩形 canvas-rect
+  // 绘制矩形边框 canvas-rect
   const canvas = document.getElementById('canvas-rect');
   canvas.width = 400;
   canvas.height = 400;
@@ -13,7 +13,7 @@
 })();
 
 (function() {
-  // 绘制矩形 canvas-fillRect
+  // 绘制填充矩形 canvas-fillRect
   const canvas = document.getElementById('canvas-fillRect');
   canvas.width = 400;
   canvas.height = 400;
@@ -25,7 +25,7 @@
 })();
 
 (function() {
-  // 绘制矩形 canvas-clearRect
+  // 绘制清除矩形区域 canvas-clearRect
   const canvas = document.getElementById('canvas-clearRect');
   canvas.width = 400;
   canvas.height = 400;
@@ -36,7 +36,6 @@
   context.fillStyle = "#009688";
   context.fillRect(50, 50, 300, 250 );
   context.clearRect(150, 100, 150, 100);
-
 })();
 
 
@@ -70,7 +69,6 @@
   context.lineWidth = 10;
   context.strokeStyle = "#000";
   context.stroke();
-
 })();
 
 
@@ -106,8 +104,8 @@
 })();
 
 (function() {
-  // 绘制三次曲线 canvas-ellipse
-  const canvas = document.getElementById('canvas-bezierCurveTo');
+  // 绘制椭圆形 canvas-ellipse
+  const canvas = document.getElementById('canvas-ellipse');
   canvas.width = 400;
   canvas.height = 400;
 
