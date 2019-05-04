@@ -31,7 +31,7 @@
 
 
 (function() {
-  // 绘制两个独立线段 canvas-3
+  // 绘制两条独立线段 canvas-3
   const canvas = document.getElementById('canvas-3');
   canvas.width = 400;
   canvas.height = 400;
@@ -54,7 +54,7 @@
 
 
 (function() {
-  // 绘制折线 canvas-4
+  // 绘制闭合折线 canvas-4
   const canvas = document.getElementById('canvas-4');
   canvas.width = 400;
   canvas.height = 400;
@@ -107,7 +107,7 @@
 
 
 (function() {
-  // 绘制折线 canvas-6
+  // 绘制折线样式 canvas-6
   const canvas = document.getElementById('canvas-6');
   canvas.width = 400;
   canvas.height = 400;
