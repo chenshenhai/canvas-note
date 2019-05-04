@@ -1,5 +1,5 @@
 (function() {
-  // 绘制填充颜色 canvas-1
+  // 绘制阴影 canvas-1
   const canvas = document.getElementById('canvas-1');
   canvas.width = 400;
   canvas.height = 400;
