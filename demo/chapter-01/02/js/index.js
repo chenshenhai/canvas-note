@@ -6,21 +6,36 @@
   const context = canvas.getContext('2d');
   
   // 绘制矩形边框
-  context.rect(50, 50, 100, 80);
+  context.rect(100, 100, 200, 100);
   context.lineWidth = 10;
   context.strokeStyle = '#000';
   context.stroke();
+})();
+
+(function() {
+  // 绘制矩形 canvas-fillRect
+  const canvas = document.getElementById('canvas-fillRect');
+  canvas.width = 400;
+  canvas.height = 400;
+  const context = canvas.getContext('2d');
 
   // 绘制填充颜色的矩形
   context.fillStyle = "#125394";
-  context.fillRect(50, 150, 100, 80);
-  
+  context.fillRect(100, 100, 200, 100);
+})();
 
+(function() {
+  // 绘制矩形 canvas-clearRect
+  const canvas = document.getElementById('canvas-clearRect');
+  canvas.width = 400;
+  canvas.height = 400;
+  const context = canvas.getContext('2d');
+  
   // 绘制填充颜色的矩形
   // 再清除矩形内部的区域
   context.fillStyle = "#009688";
-  context.fillRect(50, 250, 200, 120);
-  context.clearRect(100, 300, 80, 40);
+  context.fillRect(50, 50, 300, 250 );
+  context.clearRect(150, 100, 150, 100);
 
 })();
 
