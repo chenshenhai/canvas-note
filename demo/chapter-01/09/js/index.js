@@ -16,7 +16,20 @@
     fileReader.readAsDataURL(imageFile);
   }
 
+  function downloadImage(filename) {
+    const stream = canvas.toDataURL("image/png");
+    const downloadLink = document.createElement('a');
+    downloadLink.href = stream;
+    downloadLink.download = filename;
+    const downloadClickEvent = document.createEvent('MouseEvents');
+    downloadClickEvent.initEvent('click', true, false);
+    downloadLink.dispatchEvent(downloadClickEvent);
+  }
+
+
   const inputFile = document.getElementById('J_UploadFile');
+  const btnDownload = document.getElementById('J_Btn_Download');
+
   inputFile.addEventListener('change', function() {
     const imageFile = this.files[0];
     if (!/\.(jpg|png)$/.test(imageFile.name)) {
@@ -24,5 +37,9 @@
     }
     displayImage(imageFile);
   });
+  
+  btnDownload.addEventListener('click', function() {
+    downloadImage('download-image.png');
+  })
 
 })();
