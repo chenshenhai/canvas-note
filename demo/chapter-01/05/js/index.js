@@ -10,7 +10,7 @@
 })();
 
 (function() {
-  // 绘制填充颜色 canvas-2
+  // 绘制填充颜色透明度 canvas-2
   const canvas = document.getElementById('canvas-2');
   canvas.width = 400;
   canvas.height = 400;
@@ -58,6 +58,4 @@
   context.globalAlpha = 0.8;
   context.fillStyle = radialGradient1;
   context.fillRect(50, 50, 300, 300);
-
-
 })();
