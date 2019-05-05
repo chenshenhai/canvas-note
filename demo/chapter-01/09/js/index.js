@@ -1,7 +1,12 @@
 (function() {
   const canvas = document.getElementById('canvas-1');
 
-  function displayImage(imageFile) {
+  /**
+   * 图片文件数据流显示
+   * @param {File} imageFile 
+   * @param {HTMLCanvasElement} canvas 画布document对象 
+   */
+  function displayImage(imageFile, canvas) {
     const fileReader = new FileReader();
     fileReader.onload = function() {
       const img = new Image();
@@ -16,7 +21,29 @@
     fileReader.readAsDataURL(imageFile);
   }
 
-  function downloadImage(filename) {
+  /**
+   * 上传图片操作 uploadImage
+   * @param {HTMLCanvasElement} canvas 画布document对象 
+   */
+  function uploadImage(canvas) {
+    const inputFile = document.createElement('input');
+    inputFile.type = 'file';
+    inputFile.addEventListener('change', function() {
+      const imageFile = this.files[0];
+      if (!/\.(jpg|png)$/.test(imageFile.name)) {
+        throw Errow('no image file!');
+      }
+      displayImage(imageFile, canvas);
+    });
+    inputFile.click();
+  }
+
+  /**
+   * 下载图片操作 downloadImage
+   * @param {string} filename 图片名称
+   * @param {HTMLCanvasElement} canvas 画布document对象 
+   */
+  function downloadImage(filename, canvas) {
     const stream = canvas.toDataURL("image/png");
     const downloadLink = document.createElement('a');
     downloadLink.href = stream;
@@ -27,19 +54,14 @@
   }
 
 
-  const inputFile = document.getElementById('J_UploadFile');
+  const btnUpload = document.getElementById('J_Btn_Upload');
   const btnDownload = document.getElementById('J_Btn_Download');
 
-  inputFile.addEventListener('change', function() {
-    const imageFile = this.files[0];
-    if (!/\.(jpg|png)$/.test(imageFile.name)) {
-      throw Errow('no image file!');
-    }
-    displayImage(imageFile);
+  btnUpload.addEventListener('click', function() {
+    uploadImage(canvas);
   });
-  
   btnDownload.addEventListener('click', function() {
-    downloadImage('download-image.png');
-  })
+    downloadImage('download-image.png', canvas);
+  });
 
 })();
