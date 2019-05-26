@@ -1,5 +1,7 @@
 (function() {
   const canvasElem = document.getElementById('canvas-1');
+  canvasElem.width = 1001;
+  canvasElem.height = 501;
   
   /**
    * 
@@ -12,10 +14,13 @@
     const { imageSrc, scale = 100 } = opts;
     const img = new window.Image();
     img.onload = function(){
-      canvas.width = img.width * scale / 100;
-      canvas.height = img.height * scale /  100;
+      const drawWidth = img.width * scale / 100;
+      const drawHeight = img.height * scale /  100;
       const ctx = canvas.getContext('2d');
-      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      // 先清空画布
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      // 再绘制图片
+      ctx.drawImage(img, 0, 0, drawWidth, drawHeight);
     }
     img.src = imageSrc;
   }
