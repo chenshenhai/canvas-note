@@ -12,7 +12,7 @@
   * [1.7 二维变换](./note/chapter-01/07.md)
   * [1.8 样式状态](./note/chapter-01/08.md)
   * [1.9 图片上传和下载](./note/chapter-01/09.md)
-  * [1.10 图片数据](./note/chapter-01/10.md)
+  * [1.10 图片操作](./note/chapter-01/10.md)
 * 2. 绘制二维动画
   * [动画渲染](./note/chapter-02/01.md)
   * 平移动画
