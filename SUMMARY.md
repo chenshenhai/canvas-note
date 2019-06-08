@@ -11,15 +11,14 @@
   * [1.6 绘制阴影](./note/chapter-01/06.md)
   * [1.7 二维变换](./note/chapter-01/07.md)
   * [1.8 样式状态](./note/chapter-01/08.md)
-  * [1.9 图片上传和下载](./note/chapter-01/09.md)
-  * [1.10 图片操作](./note/chapter-01/10.md)
 * 2. 绘制二维动画
   * [动画渲染](./note/chapter-02/01.md)
   * 平移动画
   * 旋转动画
   * 缩放动画
 * 3. 图像处理
-  * [3.1 压缩](./note/chapter-03/01.md)
+  * [3.1 图片上传和下载](./note/chapter-03/01.md)
+  * [3.2 图片操作](./note/chapter-03/02.md)
   * 反色
   * 灰度
   * 模糊

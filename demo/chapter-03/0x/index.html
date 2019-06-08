@@ -4,27 +4,28 @@
   <meta charset="UTF-8">
   <title>chapter</title>
   <style>
-    canvas {
+    .canvas-bg {
       background-image:
         linear-gradient(#aaaaaa40 1px, transparent 0),
         linear-gradient(90deg, #aaaaaa40 1px, transparent 0),
         linear-gradient(#aaa 1px, transparent 0),
         linear-gradient(90deg, #aaa 1px, transparent 0);
       background-size: 10px 10px, 10px 10px, 50px 50px, 50px 50px;
-      /* width: 401px;
-      height: 401px; */
+      width: 601px;
+      height: 351px;
       margin: 10px;
     }
   </style>
 </head>
 <body>
   
-  <!-- <input type="file" id="J_UploadFile" /> -->
-  <button  id="J_Btn_Upload" >upload</button>
+  <div class="canvas-bg">
+    <canvas id="canvas-1"></canvas>
+  </div>
   <br/>
-  <button  id="J_Btn_Download" >download</button>
+  <p>压缩</p>
+  <button  class="J_Btn" data-scale="0.5">scale 50%</button>
   <br/>
-  <canvas id="canvas-1"></canvas>
   <br/>
 
   <script src="./js/index.js"></script>
