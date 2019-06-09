@@ -1,5 +1,5 @@
 (function() {
-  const canvasElem = document.getElementById('canvas-1');
+  const canvas = document.getElementById('canvas-1');
   
   /**
    * 等比缩放渲染图片
@@ -25,9 +25,45 @@
     img.src = imageSrc;
   }
 
-  drawImage(canvasElem, {
+  drawImage(canvas, {
     imageSrc: './img/github-404.png',
   });
 
+  const btnRotate = document.getElementById('J_Btn_RotateClockWise');
+  const btnRotateAnti = document.getElementById('J_Btn_RotateAntiClockWise');
+
+  function drawRotate(canvas) {
+    const context = canvas.getContext('2d');
+    const imageBase64 = canvas.toDataURL("image/png");
+    context.clearRect(0, 0, canvas.width, canvas.height);
+
+    const image = new window.Image();
+    image.src = imageBase64;
+    image.onload = function() {
+      const imgWidth = image.naturalWidth;
+      const imgHeight = image.naturalHeight;
+
+      canvas.width = imgHeight;
+      canvas.height = imgWidth;
+
+      context.translate(canvas.width, 0);
+      context.rotate(Math.PI / 2);
+
+      context.drawImage(image, 0, 0, imgWidth, imgHeight);
+
+    }
+  }
+
+  
+
+  btnRotate.addEventListener('click', function() {
+    console.log('---- btnRotate ---');
+    drawRotate(canvas);
+  });
+
+  btnRotateAnti.addEventListener('click', function() {
+    console.log('---- btnRotateAnti ---');
+  })
+  
 
 })();
