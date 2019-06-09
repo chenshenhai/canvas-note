@@ -32,10 +32,11 @@
   const btnRotate = document.getElementById('J_Btn_RotateClockWise');
   const btnRotateAnti = document.getElementById('J_Btn_RotateAntiClockWise');
 
-  function drawRotate(canvas) {
+  function drawRotate(canvas, isAnti) {
     const context = canvas.getContext('2d');
     const imageBase64 = canvas.toDataURL("image/png");
     context.clearRect(0, 0, canvas.width, canvas.height);
+    const direction = isAnti === true ? -1 : 1;
 
     const image = new window.Image();
     image.src = imageBase64;
@@ -45,10 +46,12 @@
 
       canvas.width = imgHeight;
       canvas.height = imgWidth;
-
-      context.translate(canvas.width, 0);
-      context.rotate(Math.PI / 2);
-
+      if (direction === 1) {
+        context.translate(canvas.width, 0);
+      } else {
+        context.translate(0, canvas.height);
+      }
+      context.rotate(Math.PI / 2 * direction);
       context.drawImage(image, 0, 0, imgWidth, imgHeight);
 
     }
@@ -63,6 +66,7 @@
 
   btnRotateAnti.addEventListener('click', function() {
     console.log('---- btnRotateAnti ---');
+    drawRotate(canvas, true);
   })
   
 
