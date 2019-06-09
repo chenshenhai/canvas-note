@@ -29,9 +29,6 @@
     imageSrc: './img/github-404.png',
   });
 
-  const btnRotate = document.getElementById('J_Btn_RotateClockWise');
-  const btnRotateAnti = document.getElementById('J_Btn_RotateAntiClockWise');
-
   function drawRotate(canvas, isAnti) {
     const context = canvas.getContext('2d');
     const imageBase64 = canvas.toDataURL("image/png");
@@ -57,17 +54,41 @@
     }
   }
 
-  
+
+  /**
+   * 下载图片操作 downloadImage
+   * @param {string} filename 图片名称
+   * @param {HTMLCanvasElement} canvas 画布document对象 
+   */
+  function downloadImage(filename, canvas) {
+    // 将canvas的图片字符串数据取出
+    const stream = canvas.toDataURL("image/png");
+    // 设置下载链接
+    const downloadLink = document.createElement('a');
+    downloadLink.href = stream;
+    // 设置下载文件名称
+    downloadLink.download = filename;
+    // 设置点击事件
+    const downloadClickEvent = document.createEvent('MouseEvents');
+    // 出发点击事件
+    downloadClickEvent.initEvent('click', true, false);
+    downloadLink.dispatchEvent(downloadClickEvent);
+  }
+
+
+  const btnRotate = document.getElementById('J_Btn_RotateClockWise');
+  const btnRotateAnti = document.getElementById('J_Btn_RotateAntiClockWise');
+  const btnDownload = document.getElementById('J_Btn_Download');
 
   btnRotate.addEventListener('click', function() {
-    console.log('---- btnRotate ---');
     drawRotate(canvas);
   });
 
   btnRotateAnti.addEventListener('click', function() {
-    console.log('---- btnRotateAnti ---');
     drawRotate(canvas, true);
-  })
-  
+  });
 
+  btnDownload.addEventListener('click', function() {
+    downloadImage('rotate-image.png', canvas);
+  });
 })();
