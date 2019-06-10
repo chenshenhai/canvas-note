@@ -1,0 +1,23 @@
+.canvas-list {
+  display: block;
+  width: 100%;
+}
+.canvas-list::after {
+  display: block;
+  content: '';
+  width: 0;
+  height: 0;
+  clear: both;
+}
+.canvas-bg {
+  float: left;
+  background-image:
+    linear-gradient(#aaaaaa40 1px, transparent 0),
+    linear-gradient(90deg, #aaaaaa40 1px, transparent 0),
+    linear-gradient(#aaa 1px, transparent 0),
+    linear-gradient(90deg, #aaa 1px, transparent 0);
+  background-size: 10px 10px, 10px 10px, 50px 50px, 50px 50px;
+  width: 601px;
+  height: 351px;
+  margin: 10px;
+}
