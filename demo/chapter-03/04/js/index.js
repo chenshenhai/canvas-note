@@ -1,70 +1,94 @@
-(async function() {
-  const canvas1 = document.getElementById('canvas-1');
-  const canvas2 = document.getElementById('canvas-2');
+(function() {
+  const canvas = document.getElementById('canvas-1');
   
   /**
-   * 获取图片数据 getImageData
+   * 等比缩放渲染图片
    * @param {HTMLCanvasElement} canvas 
    * @param {object} opts
    * opts.imageSrc {string} 图片链接
+   * opts.scale {number} 缩放比例默认 1
    */
-  function getImageData(imageSrc) {
+  function drawImage(canvas, opts) {
+    const { imageSrc,} = opts;
     const img = new window.Image();
-    const canvas = document.createElement('canvas');
-    return new Promise(function(resolve, reject) {
-      img.onload = function(){
-        const drawWidth = img.width;
-        const drawHeight = img.height;
-        canvas.width = drawWidth;
-        canvas.height = drawHeight;
-        const ctx = canvas.getContext('2d');
-        // 先清空画布
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        // 再绘制图片
-        ctx.drawImage(img, 0, 0, drawWidth, drawHeight);
-        const imgData = ctx.getImageData(0, 0, drawWidth, drawHeight);
-        resolve(imgData);
-      }
-      img.onerror = function(err) {
-        reject(err);
-      }
-      img.src = imageSrc;
-    });
-  }
-
-  function renderImage(canvas, imageData) {
-    const ctx = canvas.getContext('2d');
-    canvas.width = imageData.width;
-    canvas.height = imageData.height;
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.putImageData(imageData, 0, 0); 
-  }
-  
-
-  function parseGrayImageData(imageData) {
-    const data = imageData.data;
-    for (let i = 0; i < data.length; i += 4) {
-      const redChannel = data[i + 0];
-      const greenChannel = data[i + 1];
-      const blueChannel = data[i + 2];
-      // const alphaChannel = data[i + 3];
-
-      grayChannel = (redChannel + greenChannel + blueChannel) / 3;
-      data[i + 0] = grayChannel;
-      data[i + 1] = grayChannel;
-      data[i + 2] = grayChannel;
-      data[i + 3] = 255;
+    img.onload = function(){
+      const drawWidth = img.width;
+      const drawHeight = img.height;
+      canvas.width = drawWidth;
+      canvas.height = drawHeight;
+      const ctx = canvas.getContext('2d');
+      // 先清空画布
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      // 再绘制图片
+      ctx.drawImage(img, 0, 0, drawWidth, drawHeight);
     }
-    imageData.data = data;
-    return imageData;
+    img.src = imageSrc;
   }
 
-  const imgData = await getImageData('./img/github-404.png');
-  renderImage(canvas1, imgData);
+  drawImage(canvas, {
+    imageSrc: './img/github-404.png',
+  });
 
-  const grayImgData = parseGrayImageData(imgData);
-  console.log('grayImgData = ', grayImgData);
-  renderImage(canvas2, grayImgData);
-  
-  
+  function drawRotate(canvas, isAnti) {
+    const context = canvas.getContext('2d');
+    const imageBase64 = canvas.toDataURL("image/png");
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    const direction = isAnti === true ? -1 : 1;
+
+    const image = new window.Image();
+    image.src = imageBase64;
+    image.onload = function() {
+      const imgWidth = image.naturalWidth;
+      const imgHeight = image.naturalHeight;
+
+      canvas.width = imgHeight;
+      canvas.height = imgWidth;
+      if (direction === 1) {
+        context.translate(canvas.width, 0);
+      } else {
+        context.translate(0, canvas.height);
+      }
+      context.rotate(Math.PI / 2 * direction);
+      context.drawImage(image, 0, 0, imgWidth, imgHeight);
+
+    }
+  }
+
+
+  /**
+   * 下载图片操作 downloadImage
+   * @param {string} filename 图片名称
+   * @param {HTMLCanvasElement} canvas 画布document对象 
+   */
+  function downloadImage(filename, canvas) {
+    // 将canvas的图片字符串数据取出
+    const stream = canvas.toDataURL("image/png");
+    // 设置下载链接
+    const downloadLink = document.createElement('a');
+    downloadLink.href = stream;
+    // 设置下载文件名称
+    downloadLink.download = filename;
+    // 设置点击事件
+    const downloadClickEvent = document.createEvent('MouseEvents');
+    // 出发点击事件
+    downloadClickEvent.initEvent('click', true, false);
+    downloadLink.dispatchEvent(downloadClickEvent);
+  }
+
+
+  const btnRotate = document.getElementById('J_Btn_RotateClockWise');
+  const btnRotateAnti = document.getElementById('J_Btn_RotateAntiClockWise');
+  const btnDownload = document.getElementById('J_Btn_Download');
+
+  btnRotate.addEventListener('click', function() {
+    drawRotate(canvas);
+  });
+
+  btnRotateAnti.addEventListener('click', function() {
+    drawRotate(canvas, true);
+  });
+
+  btnDownload.addEventListener('click', function() {
+    downloadImage('rotate-image.png', canvas);
+  });
 })();

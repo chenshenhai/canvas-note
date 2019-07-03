@@ -4,29 +4,33 @@
   <meta charset="UTF-8">
   <title>chapter</title>
   <style>
-    .canvas-bg {
+    canvas {
       background-image:
         linear-gradient(#aaaaaa40 1px, transparent 0),
         linear-gradient(90deg, #aaaaaa40 1px, transparent 0),
         linear-gradient(#aaa 1px, transparent 0),
         linear-gradient(90deg, #aaa 1px, transparent 0);
       background-size: 10px 10px, 10px 10px, 50px 50px, 50px 50px;
-      width: 601px;
-      height: 601px;
+      /* width: 401px;
+      height: 401px; */
       margin: 10px;
     }
   </style>
 </head>
 <body>
   
-  <div class="canvas-bg">
-    <canvas id="canvas-1"></canvas>
-  </div>
-  <button id="J_Btn_RotateClockWise" >顺时针旋转90%</button>
+  <!-- <input type="file" id="J_UploadFile" /> -->
+
+  <canvas id="canvas-1"></canvas>
   <br/>
-  <button id="J_Btn_RotateAntiClockWise">逆时针旋转90%</button>
+  <p>缩放</p>
+  <button  class="J_Btn_Scale" data-scale="0.5">scale 50%</button>
+  <button  class="J_Btn_Scale" data-scale="1">scale 100%</button>
+  <button  class="J_Btn_Scale" data-scale="1.5">scale 150%</button>
   <br/>
-  <button id="J_Btn_Download">下载旋转后的图片</button>
+  <p>从坐标(0, 0)等比截取</p>
+  <button  class="J_Btn_Slice" data-slice="0.5">slice 1/4</button>
+  <button  class="J_Btn_Slice" data-slice="0.25">slice 1/16</button>
   <br/>
 
   <script src="./js/index.js"></script>
