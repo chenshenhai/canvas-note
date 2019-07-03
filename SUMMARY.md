@@ -14,10 +14,10 @@
 * 2. 绘制二维动画
   * [动画渲染](./note/chapter-02/01.md)
 * 3. 图像基础处理
-  * [3.1 canvas图像基础](./note/chapter-03/01.md)
+  * [canvas图像基础]
   * [3.2 图片上传和下载](./note/chapter-03/02.md)
   * [3.3 图片缩放和截图](./note/chapter-03/03.md)
-  * [3.4 图片旋转](./note/chapter-03/04.md)
+  * [3.4 图片旋转]
   * [图片质量压缩]
   * [RGB和HSL]
   * [色相]
