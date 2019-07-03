@@ -25,7 +25,8 @@ import {
   });
   btnDownload.addEventListener('click', function() {
     downloadImageFromCanvas(canvas, {
-      filename: 'download-image.png'
+      filename: 'download-image.png',
+      type: 'image/png',
     });
   });
 

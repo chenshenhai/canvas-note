@@ -32,6 +32,9 @@ export const downloadImageFromCanvas = function (canvas, opts = {}) {
   const { filename, type = 'image/jpg' } = opts;
   // 将canvas的图片字符串数据取出
   const stream = canvas.toDataURL(type);
+
+  console.log('stream = ', stream);
+
   // 设置下载链接
   const downloadLink = document.createElement('a');
   downloadLink.href = stream;
