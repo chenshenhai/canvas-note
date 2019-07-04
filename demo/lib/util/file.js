@@ -105,3 +105,55 @@ export const displayImageFile = function(imageFile, canvas) {
   })
 }
 
+
+/**
+ * 获取在线图片 getImage
+ * @param {string} imageSrc 图片链接
+ * @return {promise}
+ */
+export const getImageBySrc = function(imageSrc) {
+  const img = new window.Image();
+  return new Promise(function(resolve, reject) {
+    img.onload = function(){
+      resolve(img);
+    }
+    img.onerror = function(err) {
+      reject(err);
+    }
+    img.src = imageSrc;
+  });
+};
+
+
+
+/**
+ * 获取在线图片数据 getImage
+ * @param {string} imageSrc 图片链接
+ * @return {promise}
+ */
+export const getImageDataBySrc = function(imageSrc) {
+  return new Promise(function(resolve, reject) {
+    getImageBySrc(imageSrc).then(function(img){
+      const img = new window.Image();
+      const canvas = document.createElement('canvas');
+      const drawWidth = img.width;
+      const drawHeight = img.height;
+      canvas.width = drawWidth;
+      canvas.height = drawHeight;
+      const ctx = canvas.getContext('2d');
+      // 先清空画布
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      // 再绘制图片
+      ctx.drawImage(img, 0, 0, drawWidth, drawHeight);
+      const imgData = ctx.getImageData(0, 0, drawWidth, drawHeight);
+      resolve(imgData);
+    }).catch(function(err) {
+      reject(err);
+    });
+  });
+};
+
+
+
+
+
