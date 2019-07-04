@@ -5,7 +5,7 @@ const PIECE_SIZE = 1000 * 1000;
 export const compressImage = function(img, opts = { type: 'image/jpeg',  encoderOptions: 0.1 }) {
   const {type, encoderOptions } = opts;
   const w = img.width;
-  const h = img.width;
+  const h = img.height;
   let outputW = w;
   let outputH = h;
   let imageSize = w * h;
@@ -30,6 +30,7 @@ export const compressImage = function(img, opts = { type: 'image/jpeg',  encoder
   if (pieceCount > 1) {
     const pieceW = Math.ceil(canvas.width / pieceCount);
     const pieceH = Math.ceil(canvas.height / pieceCount);
+
     tempCanvas.width = pieceW;
     tempCanvas.height = pieceH;
     let tempContext = tempCanvas.getContext('2d');
