@@ -17,7 +17,12 @@
     linear-gradient(#aaa 1px, transparent 0),
     linear-gradient(90deg, #aaa 1px, transparent 0);
   background-size: 10px 10px, 10px 10px, 50px 50px, 50px 50px;
-  width: 601px;
-  height: 351px;
+  width: 351px;
+  height: 251px;
   margin: 10px;
+}
+
+.canvas-bg canvas {
+  max-height: 200px;
+  min-width: 100px;
 }

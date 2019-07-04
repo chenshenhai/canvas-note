@@ -134,7 +134,6 @@ export const getImageBySrc = function(imageSrc) {
 export const getImageDataBySrc = function(imageSrc) {
   return new Promise(function(resolve, reject) {
     getImageBySrc(imageSrc).then(function(img){
-      const img = new window.Image();
       const canvas = document.createElement('canvas');
       const drawWidth = img.width;
       const drawHeight = img.height;
