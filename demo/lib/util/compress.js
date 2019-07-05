@@ -15,7 +15,7 @@ const PIECE_SIZE = 1000 * 1000;
  *   opts.encoderOptions: 压缩比例，范围在[0,1]，只在 type='image/jpeg'时候有效
  * @return {string} 输出类型
  */
-export const compressImage = function(img, opts = { type: 'image/jpeg',  encoderOptions: 0.1 }) {
+export const compressImage = function(img, opts = { type: 'image/jpeg',  encoderOptions: 0.5 }) {
   const {type, encoderOptions } = opts;
   const w = img.width;
   const h = img.height;
@@ -86,6 +86,7 @@ export const compressImage = function(img, opts = { type: 'image/jpeg',  encoder
   }
 
   // 将结果的canvas输出成base64
+  // 上述压缩的是尺寸，这里使用 encoderOptions 压缩的是质量，可以理解为清晰度
   const base64 = canvas.toDataURL(type, encoderOptions);
   context.clearRect(0, 0, canvas.width, canvas.height);
   canvas.width = 0;
