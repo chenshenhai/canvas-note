@@ -1,4 +1,4 @@
-# Canvas进阶开发笔记
+# Canvas开发笔记
 * 致读者
   * 本书初衷
   * [参考资料](./note/chapter-00/02.md)
