@@ -9,16 +9,16 @@
   function start(x, y) {
     isPainting = true;
     lastPoint = {
-      x: x,
-      y: y
+      x: x - canvas.offsetLeft,
+      y: y - canvas.offsetTop
     };
   }
 
   function move(x, y) {
     if (isPainting) {
       let newPoint = {
-        x: x,
-        y: y
+        x: x - canvas.offsetLeft,
+        y: y - canvas.offsetTop
       };
       drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y);
       lastPoint = newPoint;
