@@ -5,20 +5,17 @@
   const canvas = document.querySelector('#canvas');
   const ctx = canvas.getContext('2d');
 
-  canvas.onmousedown = function (e) {
+
+  function start(x, y) {
     isPainting = true;
-    let x = e.clientX;
-    let y = e.clientY;
     lastPoint = {
       x: x,
       y: y
     };
-  };
+  }
 
-  canvas.onmousemove = function (e) {
+  function move(x, y) {
     if (isPainting) {
-      let x = e.clientX;
-      let y = e.clientY;
       let newPoint = {
         x: x,
         y: y
@@ -26,12 +23,23 @@
       drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y);
       lastPoint = newPoint;
     }
-  };
+  }
 
-  canvas.onmouseup = function () {
+  function end() {
     isPainting = false;
   }
 
+  canvas.addEventListener('mousedown', (e) => {
+    start(e.clientX, e.clientY);
+  });
+
+  canvas.addEventListener('mousemove', (e) => {
+    move(e.clientX, e.clientY)
+  });
+
+  canvas.addEventListener('mouseup', (e) => {
+    end();
+  })
 
 
   function drawLine(x1, y1, x2, y2) {
