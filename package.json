@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "http-server ./demo/"
   },
   "repository": {
     "type": "git",
@@ -21,7 +21,8 @@
   },
   "homepage": "https://github.com/chenshenhai/canvas-note#readme",
   "dependencies": {
-    "koa": "^2.7.0",
-    "koa-static": "^5.0.0"
+  },
+  "devDependencies": {
+    "http-server": "^0.12.3"
   }
 }

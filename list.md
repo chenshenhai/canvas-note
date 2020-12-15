@@ -9,7 +9,8 @@
   - 1.7 2D deformation
   - 1.8 Style status
   - 1.9 Drawing curve
-  - 1.10 Optimized drawing curve 
+  - 1.10 Drawing optimized curve 
+  - 1.11 Drawing SVG
 - 2. Rendering animation
   - 2.1 Animation basic
 - 3. Image processing
