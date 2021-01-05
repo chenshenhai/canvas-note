@@ -1,4 +1,5 @@
 - [reference.codeproject.com/book/dom/canvas_api/drawing_dom_objects_into_a_canvas](https://reference.codeproject.com/book/dom/canvas_api/drawing_dom_objects_into_a_canvas)
 - [simmin.github.io/2016/12/03/draw-dom-to-canvas](https://simmin.github.io/2016/12/03/draw-dom-to-canvas/)
-- [canvas render svg foreignObject cors](https://stackoverflow.com/questions/50824012/why-does-this-svg-holding-blob-url-taint-the-canvas-in-chrome)
-- [draw canvas clearly](https://www.html.cn/archives/9297)
+- [Canvas render svg foreignObject cors](https://stackoverflow.com/questions/50824012/why-does-this-svg-holding-blob-url-taint-the-canvas-in-chrome)
+- [Draw canvas clearly](https://www.html.cn/archives/9297)
+- [Draw canvas width ImageBitmap](https://www.twle.cn/l/yufei/canvas/canvas-basic-image-bitmap.html)
