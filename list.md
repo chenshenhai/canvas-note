@@ -19,6 +19,7 @@
   - [x] 3.3 Image scale
   - [x] 3.4 Image rotate
   - [x] 3.5 Image compress
+  - [x] 3.6 Image border-radius
 - 4. Drawing Chart
   - [] 4.1 Line
   - [] 4.2 Area
@@ -27,5 +28,6 @@
   - [] 4.5 Radar
 - 5. Drawing Doc
   - [] 5.1 Excel
-
+- Other
+ - []Fingerprint
   
