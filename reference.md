@@ -3,3 +3,4 @@
 - [Canvas render svg foreignObject cors](https://stackoverflow.com/questions/50824012/why-does-this-svg-holding-blob-url-taint-the-canvas-in-chrome)
 - [Draw canvas clearly](https://www.html.cn/archives/9297)
 - [Draw canvas width ImageBitmap](https://www.twle.cn/l/yufei/canvas/canvas-basic-image-bitmap.html)
+- [html-canvas-unit-testing](https://stackoverflow.com/questions/4406864/html-canvas-unit-testing)

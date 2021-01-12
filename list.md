@@ -28,6 +28,10 @@
   - [] 4.5 Radar
 - 5. Drawing Doc
   - [] 5.1 Excel
+- 6. Testing
+  - [] 6.1 Testing by draw-calls
+  - [] 6.2 Testing by e2e
 - Other
  - []Fingerprint
+
   
