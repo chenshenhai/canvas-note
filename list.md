@@ -20,17 +20,18 @@
   - [x] 3.4 Image rotate
   - [x] 3.5 Image compress
   - [x] 3.6 Image border-radius
+  - [] 3.7 Image border
 - 4. Drawing Chart
-  - [] 4.1 Line
-  - [] 4.2 Area
-  - [] 4.3 Bar
-  - [] 4.4 Pie
-  - [] 4.5 Radar
-- 5. Drawing Doc
-  - [] 5.1 Excel
-- 6. Testing
-  - [] 6.1 Testing by draw-calls
-  - [] 6.2 Testing by e2e
+  - [] Line
+  - [] Area
+  - [] Bar
+  - [] Pie
+  - [] Radar
+- Drawing Doc
+  - [] Excel
+- Testing
+  - [] Testing by draw-calls
+  - [] Testing by e2e
 - Other
  - []Fingerprint
 
