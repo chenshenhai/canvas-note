@@ -1,0 +1,19 @@
+{
+  "name": "test-e2e",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --exit ./__tests__/index.test.js",
+    "snapshot": "node ./__tests__/snapshot.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jimp": "^0.16.1",
+    "mocha": "^8.2.1",
+    "pixelmatch": "^5.2.1",
+    "puppeteer": "^7.0.1",
+    "serve-handler": "^6.1.3"
+  }
+}
