@@ -6,6 +6,8 @@
   const x = 40;
   const y = 40;
   const radius = 50;
+  const lineWidth = 4;
+  const color = '#666666'
   const drawImage = function(image, width, height, radius) {
     var pattern = context.createPattern(image, "no-repeat");
     drawBorderRadius(context, x, y, width, height, radius * 1 || 0, pattern);
@@ -31,6 +33,18 @@
     if (r > radius / 2) {
       r = radius / 2;
     }
+
+
+    ctx.beginPath();
+    ctx.moveTo(x + r - lineWidth, y - lineWidth);
+    ctx.arcTo(x + w + lineWidth, y - lineWidth, x + w, y + h, r);
+    ctx.arcTo(x + w + lineWidth, y + h + lineWidth, x, y + h, r);
+    ctx.arcTo(x - lineWidth, y + lineWidth + h, x, y, r);
+    ctx.arcTo(x - lineWidth, y - lineWidth, x + w, y, r);
+    ctx.closePath();  
+    ctx.fillStyle = color;
+    ctx.fill();  
+
     ctx.beginPath();
     ctx.moveTo(x + r, y);
     ctx.arcTo(x + w, y, x + w, y + h, r);
