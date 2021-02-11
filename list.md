@@ -1,27 +1,34 @@
 
 - 1. Drawing Basic
-  - [x] 1.1 Drawing line
-  - [x] 1.2 Drawing shapes
-  - [x] 1.3 Drawing Path2D
-  - [x] 1.4 Drawing font
-  - [x] 1.5 Filling color
-  - [x] 1.6 Drawing shadows
-  - [x] 1.7 2D deformation
-  - [x] 1.8 Style status
-  - [x] 1.9 Drawing curve
-  - [x] 1.10 Drawing optimized curve 
-  - [x] 1.11 Drawing SVG
-- 2. Rendering animation
-  - [x] 2.1 Animation basic
-- 3. Image processing
-  - [x] 3.1 Image processing basic
-  - [x] 3.2 Image upload and download
-  - [x] 3.3 Image scale
-  - [x] 3.4 Image rotate
-  - [x] 3.5 Image compress
-  - [x] 3.6 Image border-radius
-  - [] 3.7 Image border
-- 4. Drawing Chart
+  - [x] Drawing line
+  - [x] Drawing shapes
+  - [x] Drawing Path2D
+  - [x] Drawing font
+  - [x] Filling color
+  - [x] Drawing shadows
+  - [x] 2D deformation
+  - [x] Style status
+  - [x] Drawing curve
+  - [x] Drawing optimized curve 
+  - [x] Drawing SVG
+- Drawing Rich-text 
+  - [] Font background
+  - [] Font border
+  - [] Text wrap
+  - [] Text ellipsis
+  - [x] Image border-radius
+  - [x] Image border
+  - [] Mutiple image
+  - [] Rich-text
+- Image processing
+  - [x] Image processing basic
+  - [x] Image scale
+  - [x] Image rotate
+  - [x] Image compress
+  - [x] Image upload and download
+- Rendering animation
+  - [x] Animation basic
+- Drawing Chart
   - [] Line
   - [] Area
   - [] Bar
@@ -31,7 +38,7 @@
   - [] Excel
 - Testing
   - [] Testing by draw-calls
-  - [] Testing by e2e
+  - [x] Testing by e2e
 - Other
  - []Fingerprint
 
