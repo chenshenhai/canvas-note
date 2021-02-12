@@ -12,9 +12,10 @@
   - [x] Drawing optimized curve 
   - [x] Drawing SVG
 - Drawing Rich-text 
-  - [] Font border
   - [x] Font background-color
   - [] Font background-image
+  - [x] Font border
+  - [] Font border-radius
   - [] Text wrap
   - [] Text ellipsis
   - [x] Image border-radius
