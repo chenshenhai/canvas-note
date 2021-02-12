@@ -1,61 +1,40 @@
 import { drawBorder } from '../../../lib/util/draw-line.js';
+import { drawImage } from '../../../lib/util/draw-block.js';
+import { loadImage } from './../../../lib/util/loader.js';
 
 (function() {
   const { Image } = window;
   const canvas = document.querySelector("#canvas");
-  const context = canvas.getContext("2d");
+  const ctx2d = canvas.getContext("2d");
   const image = new Image();
+  // const x = 40;
+  // const y = 40;
   const x = 40;
   const y = 40;
-  const radius = 30;
-  const lineWidth = 20;
+  const radius = 40;
+  const lineWidth = 10;
   const limitWidth = 200;
   const limitHeight = 200;
-  const color = '#666666'
-  const drawImage = function(image, width, height, radius) {
-    var pattern = context.createPattern(image, "no-repeat");
-    drawBorderRadius(context, x, y, width, height, radius * 1 || 0, pattern);
-  }
-
-  image.onload = function() {
-    const img = this;
+  const color = '#666666';
+  const imageSrc = './../../../image/lena.png';
+  
+  loadImage(imageSrc).then((img) => {
     const { width, height } = img;
-    // context.clearRect(0, 0, width, height);
-    const cvs = document.createElement('canvas');
-    const ctx2d = cvs.getContext('2d');
-    cvs.width = limitWidth + x;
-    cvs.height = limitHeight + y;
-    ctx2d.drawImage(img, x, y, limitWidth, limitHeight);
-    
-    drawImage(cvs, limitWidth, limitHeight, radius);
-  };
-  image.src = "./../../../image/lena.png";
-
-
-  function drawBorderRadius (ctx, x, y, w, h, r, pattern) {
-
-    drawBorder(ctx, {
+    drawBorder(ctx2d, {
       x: x,
       y: y,
       width: limitHeight,
       height: limitWidth,
       borderColor: color,
-      borderRadius: r,
+      borderRadius: radius,
       borderWidth: lineWidth,
-    })
+    });
 
+    drawImage(ctx2d, img, { x, y, width: limitWidth, height: limitWidth, radius: radius });
 
-    ctx.beginPath();
-    ctx.moveTo(x + r, y);
-    ctx.arcTo(x + w, y, x + w, y + h, r);
-    ctx.arcTo(x + w, y + h, x, y + h, r);
-    ctx.arcTo(x, y + h, x, y, r);
-    ctx.arcTo(x, y, x + w, y, r);
-    ctx.closePath();  
-    ctx.fillStyle = pattern;
-    ctx.fill();  
     
-  }
+  }).catch(console.log)
+
 
 })();
 

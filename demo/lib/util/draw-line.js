@@ -1,4 +1,4 @@
-export function drawBorder(ctx, opts) {
+export function drawBorder(ctx2d, opts) {
   const _opts = {...{
     x: 0,
     y: 0,
@@ -20,15 +20,15 @@ export function drawBorder(ctx, opts) {
 
   const borderR = r + lineWidth / 2;
   const addW = lineWidth / 2
-  ctx.beginPath();
-  ctx.moveTo(x + r, y - addW);
-  ctx.arcTo(x + w + addW, y - addW, x + w + addW, y + h, borderR);
-  ctx.arcTo(x + w + addW, y + h + addW, x, y + h +addW, borderR);
-  ctx.arcTo(x - addW, y + addW + h, x - addW, y, borderR);
-  ctx.arcTo(x - addW, y - addW, x + w, y - addW, borderR);
-  ctx.closePath();  
-  ctx.lineWidth = lineWidth;
-  ctx.strokeStyle = borderColor;
-  ctx.stroke();
+  ctx2d.beginPath();
+  ctx2d.moveTo(x + r, y - addW);
+  ctx2d.arcTo(x + w + addW, y - addW, x + w + addW, y + h, borderR);
+  ctx2d.arcTo(x + w + addW, y + h + addW, x, y + h +addW, borderR);
+  ctx2d.arcTo(x - addW, y + addW + h, x - addW, y, borderR);
+  ctx2d.arcTo(x - addW, y - addW, x + w, y - addW, borderR);
+  ctx2d.closePath();  
+  ctx2d.lineWidth = lineWidth;
+  ctx2d.strokeStyle = borderColor;
+  ctx2d.stroke();
 
 }
