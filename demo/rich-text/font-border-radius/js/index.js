@@ -1,3 +1,5 @@
+import { loadImage, loadPattern } from '../../../lib/util/loader.js';
+
 (function() {
   // 绘制文本 canvas-1
   const canvas = document.getElementById('canvas');
@@ -6,12 +8,11 @@
   const context = canvas.getContext('2d');
 
   drawText(context, 'hello canvas-note!', {
+    x: 30,
     y: 50,
-    x: 50,
-    size: 30,
-    color: '#039ef9',
-    borderColor: '#999999',
-    borderWidth: 10,
+    size: 40,
+    color: '#66b6e4f0',
+    backgroundImage: './../../../image/pexels-photo-005.jpg'
   })
 
 
@@ -20,56 +21,44 @@
    * @param {string} text 
    * @param {object} opts 
    */
-  function drawText(ctx, text, opts = {  }) {
+  function drawText(ctx, text, opts = { }) {
     const _opts = { ...{
       x: 0,
       y: 0,
       size: 12,
       fontFamily: 'Microsoft YaHei',
       color: '#000000',
+      maxWidth: ctx.canvas.width 
     }, ...opts };
-    const {x, y, size, color, fontFamily, backgroundColor, borderColor, borderRadius, borderWidth } = _opts;
+    const {x, y, size, color, fontFamily, maxWidth, backgroundImage } = _opts;
     ctx.textBaseline = 'top';
     ctx.font = `${size}px ${fontFamily}`;
-    const maxWidth = ctx.canvas.width;
     const textMetrics = ctx.measureText(text);
-    const h = size;
-    const w = textMetrics.width;
-    const r = borderRadius;
-    const halfWidth = borderWidth / 2; //borderWidth / 2;
+    const height = size;
+    const width = textMetrics.width;
+
+    loadImage(backgroundImage).then((img) => {
+      const pat = loadPattern(img, { x, y, width: img.width, height: img.height });
+      ctx.beginPath();
+      ctx.moveTo(x, y);
+      ctx.lineTo(x + width, y);
+      ctx.lineTo(x + width, y + height);
+      ctx.lineTo(x, y + height);
+      ctx.lineTo(x, y);
+      ctx.closePath(); 
+      ctx.fillStyle = pat;
+      ctx.fill();  
+      ctx.fillStyle = color;
+      ctx.fillText(text, x, y, maxWidth);
+      
+    }).catch((err) => {
+      console.log(err)
+    })
+
+    // ctx.fillStyle = backgroundColor;
+    // ctx.fillRect(x, y, width, height);
 
     
-    ctx.fillStyle = backgroundColor;
-    ctx.fillRect(x, y, w, h);
-
-    ctx.fillStyle = color;
-    ctx.fillText(text, x, y, maxWidth);
-
-    ctx.lineWidth = borderWidth;
-    ctx.strokeStyle = borderColor;
-
-    ctx.beginPath();
-    ctx.moveTo(x - halfWidth * 2, y - halfWidth);
-    ctx.lineTo(x + w + halfWidth, y - halfWidth);
-    ctx.lineTo(x + w + halfWidth, y + h + halfWidth);
-    ctx.lineTo(x - halfWidth, y + h + halfWidth);
-    ctx.lineTo(x - halfWidth, y - halfWidth);
-    ctx.stroke();
-    ctx.closePath();  
-    // ctx.fillStyle = color;
-    // ctx.fill();  
-
-    
-
-    // ctx.beginPath();
-    // ctx.moveTo(x + r, y);
-    // ctx.arcTo(x + w, y, x + w, y + h, r);
-    // ctx.arcTo(x + w, y + h, x, y + h, r);
-    // ctx.arcTo(x, y + h, x, y, r);
-    // ctx.arcTo(x, y, x + w, y, r);
-    // ctx.closePath();  
-    // ctx.fillStyle = pattern;
-    // ctx.fill();  
   }
 })();
 
