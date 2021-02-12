@@ -1,3 +1,5 @@
+import { drawBorder } from '../../../lib/util/draw-line.js';
+
 (function() {
   const { Image } = window;
   const canvas = document.querySelector("#canvas");
@@ -31,28 +33,17 @@
 
 
   function drawBorderRadius (ctx, x, y, w, h, r, pattern) {
-    let radius = Math.min(w, h);
-    if (r > radius / 2) {
-      r = radius / 2;
-    }
 
+    drawBorder(ctx, {
+      x: x,
+      y: y,
+      width: limitHeight,
+      height: limitWidth,
+      borderColor: color,
+      borderRadius: r,
+      borderWidth: lineWidth,
+    })
 
-    const borderR = r + lineWidth / 2;
-    const addW = lineWidth / 2
-    ctx.beginPath();
-    ctx.moveTo(x + r, y - addW);
-    ctx.arcTo(x + w + addW, y - addW, x + w + addW, y + h, borderR);
-    ctx.arcTo(x + w + addW, y + h + addW, x, y + h +addW, borderR);
-    ctx.arcTo(x - addW, y + addW + h, x - addW, y, borderR);
-    ctx.arcTo(x - addW, y - addW, x + w, y - addW, borderR);
-    // ctx.closePath();  
-    // ctx.fillStyle = color;
-    // ctx.fill(); 
-    
-    ctx.closePath();  
-    ctx.lineWidth = lineWidth;
-    ctx.strokeStyle = color;
-    ctx.stroke();
 
     ctx.beginPath();
     ctx.moveTo(x + r, y);
