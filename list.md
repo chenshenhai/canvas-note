@@ -10,7 +10,6 @@
   - [x] Style status
   - [x] Drawing curve
   - [x] Drawing optimized curve 
-  - [x] Drawing SVG
 - Drawing Rich-text 
   - [x] Font background-color
   - [x] Font background-image
@@ -36,12 +35,17 @@
   - [] Bar
   - [] Pie
   - [] Radar
-- Drawing Doc
-  - [] Excel
 - Testing
   - [] Testing by draw-calls
   - [x] Testing by e2e
+- Transform
+  - [] Import Image
+  - [] Import ImageData
+  - [] Import ImageBitmap
+  - [x] Import SVG
+  - [] Export ImageData
+  - [] Export Base64
 - Other
- - []Fingerprint
+  - []Fingerprint
 
   
