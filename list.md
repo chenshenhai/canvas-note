@@ -17,6 +17,7 @@
   - [x] Font border
   - [] Text wrap
   - [] Text ellipsis
+  - [] Rich-font
   - [x] Image border-radius
   - [x] Image border
   - [] Mutiple image
