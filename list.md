@@ -18,8 +18,8 @@
   - [] Text wrap
   - [] Text ellipsis
   - [] Rich-font
-  - [x] Image border-radius
-  - [x] Image border
+  - [] Image border-radius
+  - [] Image border
   - [] Mutiple image
   - [] Rich-text
 - Image processing

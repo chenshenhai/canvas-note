@@ -13,3 +13,8 @@ html,body {
   height: 401px;
   margin: 10px;
 }
+
+.canvas-bg-l {
+  width: 501px;
+  height: 501px;
+}
