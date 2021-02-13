@@ -16,6 +16,7 @@
     lineHeight: 30,
     maxWidth: 200,
     color: '#039ef9',
+    ellipsisLine: 1,
   });
   drawText(context, textCn, {
     x: 0,
@@ -24,6 +25,7 @@
     lineHeight: 30,
     maxWidth: 200,
     color: '#039ef9',
+    ellipsisLine: 1,
   });
 
   drawText(context, textEn, {
@@ -34,6 +36,7 @@
     maxWidth: 200,
     color: '#1884e0',
     wordBreak: 'break-all', // break-all, break-word,
+    ellipsisLine: 2,
   });
   drawText(context, '这件物品的编号是aaaa000000123456789', {
     x: 250,
@@ -43,6 +46,7 @@
     maxWidth: 200,
     color: '#1884e0',
     wordBreak: 'break-all', // break-all, break-word
+    ellipsisLine: 2,
   });
 
 
@@ -54,6 +58,7 @@
     maxWidth: 200,
     color: '#1884e0',
     wordBreak: 'break-word', // break-all, break-word
+    ellipsisLine: 2,
   });
 
   drawText(context, '这件物品的编号是aaaa000000123456789', {
@@ -64,6 +69,7 @@
     maxWidth: 200,
     color: '#1884e0',
     wordBreak: 'break-word', // break-all, break-word
+    ellipsisLine: 2,
   });
 
 
@@ -81,7 +87,7 @@
       color: '#000000',
       maxWidth: ctx2d.canvas.width,
     }, ...opts };
-    const {x, y, fontSize, color, fontFamily, maxWidth, lineHeight, wordBreak } = _opts;
+    const {x, y, fontSize, color, fontFamily, maxWidth, lineHeight, wordBreak, ellipsisLine } = _opts;
     
     let fontHeight = lineHeight;
     if (!fontHeight) {
@@ -91,7 +97,14 @@
     ctx2d.textBaseline = 'top';
     ctx2d.font = `${fontSize}px ${fontFamily}`;
 
-    let lines = calcWordLines(ctx2d, text, maxWidth, wordBreak);
+    let lines = [{ text, maxWidth }];
+    if (wordBreak === 'break-all') {
+      lines = calcWordLines(ctx2d, text, maxWidth, wordBreak, ellipsisLine);
+    } else if (wordBreak === 'break-word') {
+      lines = calcWordLines(ctx2d, text, maxWidth, wordBreak, ellipsisLine);
+    } else {
+      lines = calcWordLines(ctx2d, text, maxWidth, wordBreak, ellipsisLine);
+    }
     ctx2d.fillStyle = color;
     for (let i = 0; i < lines.length; i++) {
       ctx2d.fillText(lines[i].text || '', x, y + i * fontHeight, lines[i].maxWidth);
@@ -99,7 +112,7 @@
     
   }
 
-  function calcWordLines(ctx2d, text, maxWidth, wordBreak) {
+  function calcWordLines(ctx2d, text, maxWidth, wordBreak, ellipsisLine) {
     const fonts = text.split('');
     const lines = [];
     let tempLine = '';
@@ -126,6 +139,9 @@
             word = [];
           }
   
+          if (lines.length === ellipsisLine) {
+            break;
+          }
         }
         
         if (i === fonts.length - 1) {
@@ -141,6 +157,27 @@
         text: text,
         maxWidth: calcTotalTextWidth(ctx2d, text)
       })
+    }
+
+    
+
+    if (ellipsisLine > 0) {
+      const ellipsisStr = '...';
+      if (lines[ellipsisLine - 1]) {
+        tempLine = '';
+        const lastLine = lines[ellipsisLine - 1];
+        for (let i = 0; i < lastLine.text.length; i ++) {
+          const textMetrics = ctx2d.measureText(tempLine + lastLine.text[i] + ellipsisStr);
+          if (textMetrics.width > maxWidth) {
+            break;
+          } else {
+            tempLine = tempLine + lastLine.text[i];
+          }
+        }
+        tempLine = tempLine + ellipsisStr;
+        lines[ellipsisLine - 1].text = tempLine;
+        lines[ellipsisLine - 1].maxWidth = maxWidth;
+      }
     }
     return lines;
   }
