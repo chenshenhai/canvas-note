@@ -99,11 +99,11 @@
 
     let lines = [{ text, maxWidth }];
     if (wordBreak === 'break-all') {
-      lines = calcWordLines(ctx2d, text, maxWidth, false);
+      lines = calcWordLines(ctx2d, text, maxWidth, wordBreak);
     } else if (wordBreak === 'break-word') {
-      lines = calcWordLines(ctx2d, text, maxWidth, true);
+      lines = calcWordLines(ctx2d, text, maxWidth, wordBreak);
     } else {
-      lines = [{ text, maxWidth: calcTotalTextWidth(ctx2d, text) }];
+      lines = calcWordLines(ctx2d, text, calcTotalTextWidth(ctx2d, text), wordBreak);
     }
     ctx2d.fillStyle = color;
     for (let i = 0; i < lines.length; i++) {
@@ -112,14 +112,14 @@
     
   }
 
-  function calcWordLines(ctx2d, text, maxWidth, isBreakWord) {
+  function calcWordLines(ctx2d, text, maxWidth, wordBreak) {
     const fonts = text.split('');
     const lines = [];
     let tempLine = '';
     let word = [];
     for (let i = 0; i < fonts.length; i ++) {
       const char = fonts[i];
-      if ((isLetterChar(char) || isNumChar(char)) && isBreakWord === true) {
+      if ((isLetterChar(char) || isNumChar(char)) && wordBreak === 'break-word') {
         word.push(char);
       } else {
         const textMetrics = ctx2d.measureText(tempLine + word.join('') + char);
