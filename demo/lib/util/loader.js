@@ -3,6 +3,7 @@ export function loadImage(src) {
   const image = new Image();
   return new Promise((resolve, reject) => {
     image.src = src;
+    image.crossOrigin = 'Anonymous';
     image.onload = function() {
       resolve(image);
     }

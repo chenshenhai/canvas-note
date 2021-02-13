@@ -13,9 +13,8 @@
   - [x] Drawing SVG
 - Drawing Rich-text 
   - [x] Font background-color
-  - [] Font background-image
+  - [x] Font background-image
   - [x] Font border
-  - [] Font border-radius
   - [] Text wrap
   - [] Text ellipsis
   - [x] Image border-radius

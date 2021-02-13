@@ -11,9 +11,8 @@
     size: 30,
     color: '#039ef9',
     borderColor: '#999999',
-    borderWidth: 10,
-  })
-
+    borderWidth: 6,
+  });
 
   /**
    * @param {CanvasRenderingContext2D} ctx 
@@ -56,20 +55,6 @@
     ctx.lineTo(x - halfWidth, y - halfWidth);
     ctx.stroke();
     ctx.closePath();  
-    // ctx.fillStyle = color;
-    // ctx.fill();  
-
-    
-
-    // ctx.beginPath();
-    // ctx.moveTo(x + r, y);
-    // ctx.arcTo(x + w, y, x + w, y + h, r);
-    // ctx.arcTo(x + w, y + h, x, y + h, r);
-    // ctx.arcTo(x, y + h, x, y, r);
-    // ctx.arcTo(x, y, x + w, y, r);
-    // ctx.closePath();  
-    // ctx.fillStyle = pattern;
-    // ctx.fill();  
   }
 })();
 
