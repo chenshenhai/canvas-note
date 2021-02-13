@@ -35,7 +35,7 @@
     color: '#1884e0',
     wordBreak: 'break-all', // break-all, break-word
   });
-  drawText(context, textCn, {
+  drawText(context, '这件物品的编号是aaaa000000123456789', {
     x: 250,
     y: 100,
     fontSize: 20,
@@ -56,7 +56,7 @@
     wordBreak: 'break-word', // break-all, break-word
   });
 
-  drawText(context, '这件战国古董价值123456789块，是不是太贵了？', {
+  drawText(context, '这件物品的编号是aaaa000000123456789', {
     x: 250,
     y: 250,
     fontSize: 20,
@@ -94,17 +94,17 @@
     ctx2d.font = `${fontSize}px ${fontFamily}`;
 
 
-    let lines = [text];
+    let lines = [{ text, maxWidth }];
     if (wordBreak === 'break-all') {
       lines = calcFontLines(ctx2d, text, maxWidth);
     } else if (wordBreak === 'break-word') {
       lines = calcWordLines(ctx2d, text, maxWidth);
     } else {
-      renderWidth = calcTotalTextWidth(ctx2d, text);
+      lines = [{ text, maxWidth: calcTotalTextWidth(ctx2d, text) }];
     }
     ctx2d.fillStyle = color;
     for (let i = 0; i < lines.length; i++) {
-      ctx2d.fillText(lines[i] || '', x, y + i * fontHeight, renderWidth);
+      ctx2d.fillText(lines[i].text || '', x, y + i * fontHeight, lines[i].maxWidth);
     }
     
   }
@@ -121,13 +121,13 @@
       } else {
         const textMetrics = ctx2d.measureText(tempLine + word.join('') + char);
         if (textMetrics.width > maxWidth) {
-          lines.push(tempLine);
+          lines.push({ text: tempLine, maxWidth });
           tempLine = word.join('') + char; 
           word = [];
 
           const textMetrics = ctx2d.measureText(tempLine);
           if (textMetrics.width > maxWidth) {
-            lines.push(tempLine);
+            lines.push({ text: tempLine, maxWidth: calcTotalTextWidth(ctx2d, tempLine) });
             tempLine = '';
           }
         } else {
@@ -137,7 +137,11 @@
       }
       
       if (i === fonts.length - 1) {
-        lines.push(tempLine);
+        lines.push({ text: tempLine, maxWidth,});
+        if (word.length > 0) {
+          const tempLine = word.join('');
+          lines.push({ text: tempLine, maxWidth: calcTotalTextWidth(ctx2d, tempLine) })
+        }
       }
     }
     return lines;
@@ -159,13 +163,13 @@
       const textMetrics = ctx2d.measureText(tempLine + fonts[i]);
       
       if (textMetrics.width > maxWidth) {
-        lines.push(tempLine);
+        lines.push({ text: tempLine, maxWidth,});
         tempLine = fonts[i];
       } else {
         tempLine = tempLine + fonts[i];
       }
       if (i === fonts.length - 1) {
-        lines.push(tempLine);
+        lines.push({ text: tempLine, maxWidth: calcTotalTextWidth(ctx2d, tempLine) });
       }
     }
     return lines;
