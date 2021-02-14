@@ -3,7 +3,7 @@ export function createBlockCanvas(opts) {
   const _opts = {...{
     width: 1, height: 1, borderRadius: 0, backgroundColor: 'transparent', borderWidth: 1,
   }, ...opts}
-  const { width, height, borderWidth, borderRadius, backgroundColor } = _opts;
+  const { width, height, borderRadius, backgroundColor } = _opts;
 
   const canvas = document.createElement('canvas');
   const ctx2d = canvas.getContext('2d');

@@ -18,11 +18,14 @@ import { drawImage } from '../../../lib/util/draw-block.js';
     fontSize: 20,
     lineHeight: 30,
     maxWidth: 200,
-    color: '#039ef9', 
+    color: '#1884e0', 
     // ellipsisLine: 1,
     backgroundColor: '#74ebf7',
     paddingLeft: 10,
     paddingRight: 10,
+    borderRadius: 15,
+    borderWidth: 2,
+    borderColor: '#1884e0'
   });
   drawText(context, textCn, {
     x: 10,
@@ -30,8 +33,14 @@ import { drawImage } from '../../../lib/util/draw-block.js';
     fontSize: 20,
     lineHeight: 30,
     maxWidth: 200,
-    color: '#039ef9',
+    color: '#1884e0', 
     ellipsisLine: 1,
+    backgroundColor: '#74ebf7',
+    paddingLeft: 10,
+    paddingRight: 10,
+    borderRadius: 15,
+    borderWidth: 2,
+    borderColor: '#1884e0'
   });
 
   drawText(context, textEn, {
@@ -40,9 +49,15 @@ import { drawImage } from '../../../lib/util/draw-block.js';
     fontSize: 20,
     lineHeight: 30,
     maxWidth: 200,
-    color: '#1884e0',
-    wordBreak: 'break-all', // break-all, break-word,
-    ellipsisLine: 2,
+    color: '#1884e0', 
+    // ellipsisLine: 2,
+    backgroundColor: '#74ebf7',
+    paddingLeft: 10,
+    paddingRight: 10,
+    borderRadius: 15,
+    borderWidth: 2,
+    borderColor: '#1884e0',
+    wordBreak: 'break-all'
   });
   drawText(context, '这件物品的编号是aaaa000000123456789', {
     x: 280,
