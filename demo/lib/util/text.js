@@ -24,19 +24,10 @@ export function createTextCanvas(text, opts = {}) {
   if (!fontHeight) {
     fontHeight = fontSize;
   }
-  
-  ctx2d.textBaseline = 'top';
-  ctx2d.font = `${fontSize}px ${fontFamily}`;
 
-  let lines = calcWordLines(ctx2d, text, maxWidth, wordBreak, ellipsisLine);
-  let textHeight = lineHeight * lines.length + paddingTop + paddingBottom;
-  let textWidth = maxWidth + paddingLeft + paddingRight;
-  lines.forEach((line) => {
-    textWidth = Math.max(textWidth, line.maxWidth + paddingLeft + paddingRight);
-  });
-
-  canvas.width = textWidth;
-  canvas.height = textHeight;
+  const { lines, width, height } = calcText(ctx2d, text, _opts);
+  canvas.width = width;
+  canvas.height = height;
 
   ctx2d.fillStyle = color;
   ctx2d.textBaseline = 'top';
@@ -51,6 +42,46 @@ export function createTextCanvas(text, opts = {}) {
   return canvas;
 }
 
+
+export function calcText(ctx2d, text, opts = {}) {
+  const _opts = { ...defaultOpts, ...opts};
+  const {
+    fontSize, color, fontFamily, maxWidth, lineHeight, wordBreak, ellipsisLine,
+    paddingLeft = 0, paddingRight = 0, paddingTop = 0, paddingBottom = 0,
+  } = _opts;
+
+  ctx2d.textBaseline = 'top';
+  ctx2d.font = `${fontSize}px ${fontFamily}`;
+
+  let wordLines = calcWordLines(ctx2d, text, maxWidth, wordBreak, ellipsisLine);
+  let textWidth = maxWidth + paddingLeft + paddingRight;
+
+  let fontHeight = lineHeight;
+  if (!fontHeight) {
+    fontHeight = fontSize;
+  }
+
+  const lines = [];
+  wordLines.forEach((line, i) => {
+    textWidth = Math.max(textWidth, line.maxWidth + paddingLeft + paddingRight);
+    const fixY = (lineHeight - fontSize) / 2;
+    const x = paddingLeft
+    const y = paddingTop + fixY + i * fontHeight;
+    lines.push({
+      text: line.text,
+      maxWidth: line.maxWidth,
+      x,
+      y,
+    })
+  });
+  let textHeight = lineHeight * lines.length + paddingTop + paddingBottom;
+
+  return {
+    lines: lines,
+    width: textWidth,
+    height: textHeight,
+  }
+}
 
 
 function calcWordLines(ctx2d, text, maxWidth, wordBreak, ellipsisLine) {
