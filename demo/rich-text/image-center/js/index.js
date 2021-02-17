@@ -9,31 +9,25 @@ import { drawBackgroundColor } from './../../../lib/util/draw-block.js';
   const ctx2d = canvas.getContext('2d');
 
   loadImage('./../../../image/pexels-photo-005.jpg').then((image) => {
-    drawBackgroundColor(ctx2d, { x: 0, y: 0, width: 200, height: 200, backgroundColor: '#f0f0f0'})
-    drawImageCenter(ctx2d, image, {
-      x: 0,
-      y: 0,
-      maxWidth: 200,
-      maxHeight: 200,
-    })
+    const opts = { x: 0, y: 0, width: 200, height: 200 }
+    drawBackgroundColor(ctx2d, { ...opts, ...{backgroundColor: '#f0f0f0'}})
+    drawImageCenter(ctx2d, image, opts)
   }).catch(console.log);
 
   loadImage('./../../../image/pexels-photo-003.jpg').then((image) => {
-    drawBackgroundColor(ctx2d, { x: 200, y: 200, width: 200, height: 200, backgroundColor: '#cccccc'})
-    drawImageCenter(ctx2d, image, {
-      x: 200,
-      y: 200,
-      maxWidth: 200,
-      maxHeight: 200,
-    })
+    const opts = { x: 200, y: 200, width: 200, height: 200 }
+    drawBackgroundColor(ctx2d, { ...opts, ...{backgroundColor: '#cccccc'}})
+    drawImageCenter(ctx2d, image, opts)
   }).catch(console.log);
 
 
   function drawImageCenter(ctx2d, image, opts = {}) {
     const _opts = {...{
-      x: 0, y: 0, maxWidth: 0, maxHeight: 0,
+      x: 0, y: 0, width: 0, height: 0,
     }, ...opts};
-    const { x, y, maxWidth, maxHeight, } = _opts;
+    const { x, y } = _opts;
+    const maxHeight = _opts.height;
+    const maxWidth = _opts.width;
     const { height, width } = image;
     const scale = Math.max(width / maxWidth, height / maxHeight);
 

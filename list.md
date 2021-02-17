@@ -12,13 +12,12 @@
   - [x] Drawing optimized curve 
 - Drawing Rich-text 
   - [x] Font background-color
-  - [x] Font background-image
   - [x] Font border
   - [x] Text wrap
   - [x] Text ellipsis
   - [x] Text
-  - [] Image position
-  - [] Mutiple image
+  - [x] Image center
+  - [] Image mutiple-request
   - [] Rich text
 - Image processing
   - [x] Image processing basic
