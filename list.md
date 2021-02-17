@@ -16,10 +16,10 @@
   - [x] Font border
   - [x] Text wrap
   - [x] Text ellipsis
-  - [x] Rich font
-  - [] Image border
+  - [x] Text
+  - [] Image position
   - [] Mutiple image
-  - [] Rich-text
+  - [] Rich text
 - Image processing
   - [x] Image processing basic
   - [x] Image scale
