@@ -7,6 +7,9 @@ export function loadImage(src) {
     image.onload = function() {
       resolve(image);
     }
+    image.onabort = function(err) {
+      reject(err);
+    }
     image.onerror = function(err) {
       reject(err);
     }
