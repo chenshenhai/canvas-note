@@ -17,7 +17,7 @@
   - [x] Text ellipsis
   - [x] Text
   - [x] Image center
-  - [] Image mutiple-request
+  - [x] Image mutiple-request
   - [] Rich text
 - Image processing
   - [x] Image processing basic
@@ -27,6 +27,7 @@
   - [x] Image upload and download
 - Rendering animation
   - [x] Animation basic
+  - [] Snow animation 
 - Drawing Chart
   - [] Line
   - [] Area
