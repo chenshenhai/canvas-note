@@ -2,7 +2,7 @@ export class Watcher {
   constructor(canvas) {
     this._canvas = canvas;
     this._isPainting = false;
-    this._points = [];
+    this._positions = [];
     this._onDraw = null;
     this._initEvent();
   }
@@ -29,13 +29,13 @@ export class Watcher {
     const x = e.clientX;
     const y = e.clientY;
     this._isPainting = true;
-    this._points = [];
+    this._positions = [];
     this._lastPoint = {
       x: x - canvas.offsetLeft,
       y: y - canvas.offsetTop,
       t: Date.now(),
     };
-    this._points.push(this._lastPoint)
+    this._positions.push(this._lastPoint)
   }
   
   _onMove(e) {
@@ -48,10 +48,10 @@ export class Watcher {
         t: Date.now(),
       };
       this._lastPoint = newPoint;
-      this._points.push(newPoint);
+      this._positions.push(newPoint);
 
       if (typeof this._onDraw === 'function') {
-        this._onDraw(this._points);
+        this._onDraw(this._positions);
       }
     }
   }
