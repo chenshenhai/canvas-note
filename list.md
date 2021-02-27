@@ -1,6 +1,6 @@
 
-- 1. Drawing Basic
-  - [x] Drawing line
+- 1. Draw Basic
+  - [x] Draw line
   - [x] Drawing shapes
   - [x] Drawing Path2D
   - [x] Drawing font
@@ -19,6 +19,9 @@
   - [x] Image center
   - [x] Image mutiple-request
   - [] Rich text
+- Paint
+  - [] Paint brush
+  - [] Writing brush
 - Image processing
   - [x] Image processing basic
   - [x] Image scale
@@ -27,7 +30,8 @@
   - [x] Image upload and download
 - Rendering animation
   - [x] Animation basic
-  - [] Snow animation 
+  - [x] Snow 
+  - [] Rain 
 - Drawing Chart
   - [] Line
   - [] Area
