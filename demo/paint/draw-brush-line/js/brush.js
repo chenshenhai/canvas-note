@@ -19,10 +19,8 @@ export class Brush {
 
     ctx.fillStyle = 'rgb(0 0 0 / 20%)';
     ctx.strokeStyle = 'rgb(0 0 0 / 0%)';
-    ctx.beginPath();
-    // ctx.arc(start.x, start.y, size, 0, 2 * Math.PI, false);
-    ctx.arc(start.x, start.y, size, 0, 2 * Math.PI, false);
-    // ctx.arc(end.x, end.y, size, 0, 2 * Math.PI, false);
+    ctx.beginPath(); 
+    ctx.arc(start.x, start.y, size, 0, 2 * Math.PI, false); 
     ctx.fill();
     ctx.closePath();
     
