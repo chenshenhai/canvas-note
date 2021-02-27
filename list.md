@@ -20,7 +20,9 @@
   - [x] Image mutiple-request
   - [] Rich text
 - Paint
-  - [] Paint brush
+  - [x] Paint
+  - [] Paint line
+  - [] Paint ink
   - [] Writing brush
 - Image processing
   - [x] Image processing basic
