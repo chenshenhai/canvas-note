@@ -1,4 +1,4 @@
-import { Brush } from './brush.js';
+import { Brush } from './../../brush-line/js/brush.js';
 import { Watcher } from './watcher.js';
 
 // let isPainting = false;
@@ -13,8 +13,9 @@ watcher.onDraw((positions) => {
     return;
   }
   const start = positions[positions.length - 2];
-  const end = positions[positions.length - 1]
-  brush.drawLine(start, end)
+  const end = positions[positions.length - 1];
+  // brush.drawLine(start, end);
+  brush.drawCurveLine(start, end);
 });
 watcher.onDrawEnd((positions) => {
   console.log('positions =', JSON.stringify(positions))

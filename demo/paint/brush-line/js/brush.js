@@ -1,10 +1,14 @@
+import { createCircle } from './pattern.js';
+
+const circle = createCircle(10);
+
 export class Brush {
   constructor(ctx) {
     this._ctx = ctx;
     this._isBusy = false;
   }
 
-  drawLine(start, end, opts = { prevVelocity: 0 }) { 
+  drawLine(start, end) { 
     const ctx = this._ctx;
     const forwardX = (end.x - start.x > 0);
     const forwardY = (end.y - start.y > 0);
@@ -20,16 +24,13 @@ export class Brush {
     ctx.fillStyle = 'rgb(0 0 0 / 20%)';
     ctx.strokeStyle = 'rgb(0 0 0 / 0%)';
     ctx.beginPath();
-    // ctx.arc(start.x, start.y, size, 0, 2 * Math.PI, false);
     ctx.arc(start.x, start.y, size, 0, 2 * Math.PI, false);
-    // ctx.arc(end.x, end.y, size, 0, 2 * Math.PI, false);
     ctx.fill();
     ctx.closePath();
 
     if (d > size) {
       let _x = start.x;
       let _y = start.y;
-      let _size = size / 2;
 
       while((end.x - _x) > 0 === forwardX && (end.y - _y) > 0 === forwardY) {
         if (dx > 0) {
@@ -45,8 +46,6 @@ export class Brush {
         ctx.closePath();
       }
     }
-
-
     return v;
   }
 
@@ -63,6 +62,48 @@ export class Brush {
       const end = positions[i + 1];
       prevVelocity = this.drawLine(start, end, { prevVelocity });
     }
-    
+  }
+
+  drawCurveLine(start, end) { 
+    const ctx = this._ctx;
+    let t = 0;
+
+    const dx = Math.max(0, Math.abs(end.x - start.x));
+    const dy = Math.max(0, Math.abs(end.y - start.y));
+    const distance = Math.sqrt(Math.abs(dx * dx + dy * dy));
+  
+    while (t < 1) {
+      let size = 10;
+      let pos = this.getCurvePosition(start, end, t);
+      if (Math.random() > 0.2) {
+        const shake = ((Math.random() > 0.5) ? 1 : -1) * parseInt(Math.random() * 1.2, 10);
+        const x = pos.x - size / 2 + shake;
+        const y = pos.y - size / 2 + shake;
+        ctx.drawImage(circle, x, y, size, size);
+      }
+      t = t + 1 / distance;
+    }
+  }
+
+  getCurvePosition (start, end, t) {
+    const x = start.x + (end.x - start.x) * t;
+    const y = start.y + (end.y - start.y) * t;
+    return { x, y };
+  }
+
+  drawCurve(positions) {
+    if (this._isBusy === true) {
+      console.log('render busy!');
+      return;
+    } 
+    this._isBusy = true;
+
+    for (let i = 0; i < positions.length - 2; i++) {
+      const start = positions[i];
+      const control = positions[i + 1];
+      const end = positions[i + 2];
+      this.drawCurveLine(start, control, end);
+    }
   }
 }
+
