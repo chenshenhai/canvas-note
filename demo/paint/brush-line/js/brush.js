@@ -6,6 +6,8 @@ export class Brush {
   constructor(ctx) {
     this._ctx = ctx;
     this._isBusy = false;
+    this._size = 10;
+    this._pointSize = this._size;
   }
 
   drawLine(start, end) { 
@@ -71,15 +73,18 @@ export class Brush {
     const dx = Math.max(0, Math.abs(end.x - start.x));
     const dy = Math.max(0, Math.abs(end.y - start.y));
     const distance = Math.sqrt(Math.abs(dx * dx + dy * dy));
+
+    var brushDelta = (this._size - this._pointSize);
   
     while (t < 1) {
-      let size = 10;
+      var pointSize = Math.min(this._pointSize + (brushDelta * t), this._size);
+        
       let pos = this.getCurvePosition(start, end, t);
       if (Math.random() > 0.2) {
         const shake = ((Math.random() > 0.5) ? 1 : -1) * parseInt(Math.random() * 1.2, 10);
-        const x = pos.x - size / 2 + shake;
-        const y = pos.y - size / 2 + shake;
-        ctx.drawImage(circle, x, y, size, size);
+        const x = pos.x - pointSize / 2 + shake;
+        const y = pos.y - pointSize / 2 + shake;
+        ctx.drawImage(circle, x, y, pointSize, pointSize);
       }
       t = t + 1 / distance;
     }
@@ -98,11 +103,10 @@ export class Brush {
     } 
     this._isBusy = true;
 
-    for (let i = 0; i < positions.length - 2; i++) {
+    for (let i = 0; i < positions.length - 1; i++) {
       const start = positions[i];
-      const control = positions[i + 1];
-      const end = positions[i + 2];
-      this.drawCurveLine(start, control, end);
+      const end = positions[i + 1];
+      this.drawCurveLine(start, end);
     }
   }
 }
