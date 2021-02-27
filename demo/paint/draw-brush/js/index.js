@@ -7,7 +7,9 @@
 
   let positions = [];
 
-  function start(x, y) {
+  function onStart(e) {
+    const x = e.clientX;
+    const y = e.clientY;
     isPainting = true;
     positions = [];
     lastPoint = {
@@ -18,7 +20,9 @@
     positions.push(lastPoint)
   }
 
-  function move(x, y) {
+  function onMove(e) {
+    const x = e.clientX;
+    const y = e.clientY;
     if (isPainting) {
       let newPoint = {
         x: x - canvas.offsetLeft,
@@ -31,22 +35,20 @@
     }
   }
 
-  function end() {
+  function onEnd() {
     isPainting = false;
   }
 
-  canvas.addEventListener('mousedown', (e) => {
-    start(e.clientX, e.clientY);
-  });
+  canvas.addEventListener('mousedown', onStart);
+  canvas.addEventListener('mousemove', onMove);
+  canvas.addEventListener('mouseup', onEnd);
 
-  canvas.addEventListener('mousemove', (e) => {
-    move(e.clientX, e.clientY)
-  });
-
-  canvas.addEventListener('mouseup', (e) => {
-    end();
-  })
-
+  const mouseupEvent = new MouseEvent('mouseup');
+  document.querySelector('body').addEventListener('mousemove', (e) => {
+    if (e.path[0] !== canvas) {
+      canvas.dispatchEvent(mouseupEvent);
+    }
+  }, false)
 
 
   let prevVelocity = 0;
