@@ -16,6 +16,9 @@ watcher.onDraw((positions) => {
   const end = positions[positions.length - 1]
   brush.drawLine(start, end)
 });
+watcher.onDrawEnd((positions) => {
+  console.log('positions =', JSON.stringify(positions))
+});
 
 
 // let positions = [];

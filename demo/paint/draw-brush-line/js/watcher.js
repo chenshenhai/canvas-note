@@ -11,6 +11,10 @@ export class Watcher {
     this._onDraw = callback;
   }
 
+  onDrawEnd(callback) {
+    this._onDrawEnd = callback;
+  }
+
   _initEvent() {
     const canvas = this._canvas;
     canvas.addEventListener('mousedown', this._onStart.bind(this));
@@ -20,7 +24,9 @@ export class Watcher {
     const mouseupEvent = new MouseEvent('mouseup');
     document.querySelector('body').addEventListener('mousemove', (e) => {
       if (e.path[0] !== canvas) {
-        canvas.dispatchEvent(mouseupEvent);
+        if (this._isPainting === true) {
+          canvas.dispatchEvent(mouseupEvent);
+        }
       }
     }, false)
   }
@@ -58,6 +64,9 @@ export class Watcher {
   
   _onEnd() {
     this._isPainting = false;
+    if (typeof this._onDrawEnd === 'function') {
+      this._onDrawEnd(this._positions);
+    }
   }
   
 }
