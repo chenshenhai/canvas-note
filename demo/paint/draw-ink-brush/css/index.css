@@ -1,0 +1,16 @@
+html,body {
+  margin: 0; padding: 0;
+  height: 100%;
+  width: 100%;
+  background: #333333;
+}
+.wrap {
+  position: relative;
+  width: 400px;
+  height: 600px;
+  background: #ffffff;
+}
+.wrap canvas {
+  width: 400px;
+  height: 600px;
+}
