@@ -19,10 +19,6 @@
   canvas.width = 400;
   canvas.height = 400;
   const context = canvas.getContext('2d');
-
-  // 默认一个黑色正方形
-  context.fillStyle = '#000';
-  context.fillRect(100, 100, 100, 100);
   
   // 以原点坐标为(100, 100)
   context.translate(100, 100);
@@ -31,6 +27,13 @@
   // 画出一个旋转了的正方形
   context.fillStyle = '#ccc';
   context.fillRect(0, 0, 100, 100);
+
+  // 清除旋转影响
+  context.rotate(0 - Math.PI / 4);
+  context.translate(-100, -100);
+  
+  context.fillStyle = '#000';
+  context.fillRect(100, 100, 100, 100);
 })();
 
 
