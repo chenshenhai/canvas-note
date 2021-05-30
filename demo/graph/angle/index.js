@@ -9,13 +9,16 @@ function main() {
    const ctx = canvas.getContext('2d');
 
   const list = [
-    { c: { x: 200, y: 200 }, s: { x: 200, y: 100 }, e: { x: 300, y: 100 }, color: '#c0c0c0' },
-    { c: { x: 200, y: 200 }, s: { x: 300, y: 300 }, e: { x: 100, y: 300 }, color: '#000000' }
+    { c: { x: 200, y: 200 }, s: { x: 200, y: 100 }, e: { x: 300, y: 100 }, color: '#cccccc', expect: Math.PI / 4 },
+    { c: { x: 200, y: 200 }, s: { x: 300, y: 100 }, e: { x: 300, y: 300 }, color: '#c0c0c0', expect: Math.PI / 2 },
+    { c: { x: 200, y: 200 }, s: { x: 300, y: 300 }, e: { x: 300, y: 100 }, color: '#c0c0c0', expect: Math.PI / 2 },
+    { c: { x: 200, y: 200 }, s: { x: 300, y: 300 }, e: { x: 100, y: 300 }, color: '#000000', expect: Math.PI / 2 },
+    { c: { x: 200, y: 200 }, s: { x: 100, y: 300 }, e: { x: 300, y: 300 }, color: '#000000', expect: -Math.PI / 2 }
   ]
 
-  list.forEach((item) => {
+  list.forEach((item, i) => {
     const a = doAngle(ctx, item);
-    console.log(a);
+    console.log(i + ':', a === item.expect, a, item.expect);
   })
   
 }
@@ -45,7 +48,13 @@ function doAngle(ctx, params) {
 function calcAngle(center, start, end) {
   const startA = calcLineAngle(center, start);
   const endA = calcLineAngle(center, end);
-  return endA - startA;
+  if (startA > Math.PI * 3 / 2  && endA < Math.PI / 2) {
+    return endA + (Math.PI * 2 - startA);
+  } else if (endA > Math.PI * 3 / 2  && startA < Math.PI / 2) {
+    return startA + (Math.PI * 2 - endA);
+  } else {
+    return endA - startA;
+  }
 }
 
 function calcLineAngle(center, p) {
