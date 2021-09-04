@@ -66,3 +66,6 @@ _book/
 demo/*/node_modules
 demo/*/npm-debug.log
 demo/*/package-lock.json
+.DS_Store
+
+dist/
